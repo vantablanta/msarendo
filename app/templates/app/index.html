@@ -1,0 +1,763 @@
+{%extends 'base.html' %}
+{%load static%}
+
+{%block body%}
+<header class="header-area transparent">
+    <div class="container">
+      <div class="row no-gutter align-items-center position-relative">
+        <div class="col-12">
+          <div class="header-align">
+            <div class="header-align-start">
+              <div class="header-logo-area">
+                <a href="{%url 'home' %}">
+                  <img class="logo-main" src="{%static 'assets/img/logo-light.png' %}" alt="Logo" />
+                  <img class="logo-light" src="{%static 'assets/img/logo-light.png' %}" alt="Logo" />
+                </a>
+              </div>
+            </div>
+            <div class="header-align-center">
+              <div class="header-navigation-area position-relative">
+                <ul class="main-menu nav">
+                  <li><a href="{%url 'home' %}"><span>Home</span></a></li>
+                  <li class="has-submenu"><a href=""><span>Find Jobs</span></a>
+                    <ul class="submenu-nav">
+                      <li><a href="job.html"><span>Jobs</span></a></li>
+                      <li><a href="job-details.html"><span>Job Details</span></a></li>
+                    </ul>
+                  </li>
+                  <li><a href="employers-details.html"><span>Employers Details</span></a></li>
+                  <li class="has-submenu"><a href=""><span>Candidates</span></a>
+                    <ul class="submenu-nav">
+                      <li><a href="candidate.html"><span>Candidates</span></a></li>
+                      <li><a href="candidate-details.html"><span>Candidate Details</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="has-submenu"><a href=""><span>Blog</span></a>
+                    <ul class="submenu-nav">
+                      <li><a href="blog-grid.html">Blog Grid</a></li>
+                      <li><a href="blog.html">Blog Left Sidebar</a></li>
+                      <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                      <li><a href="blog-details.html">Blog Details</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-submenu"><a href=""><span>Pages</span></a>
+                    <ul class="submenu-nav">
+                      <li><a href=""><span>About us</span></a></li>
+                      <li><a href=""><span>Login</span></a></li>
+                      <li><a href=""><span>Registration</span></a></li>
+                      <li><a href=""><span>Page Not Found</span></a></li>
+                    </ul>
+                  </li>
+                  <li><a href=""><span>Contact</span></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="header-align-end">
+              <div class="header-action-area">
+                <a class="btn-registration" href=""><span>+</span> Registration</a>
+                <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                  <i class="icofont-navigation-menu"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--== End Header Wrapper ==-->
+  
+  <main class="main-content">
+    <!--== Start Hero Area Wrapper ==-->
+    <section class="home-slider-area">
+      <div class="home-slider-container default-slider-container">
+        <div class="home-slider-wrapper slider-default">
+          <div class="slider-content-area" data-bg-img="assets/img/slider/slider-bg.jpg">
+            <div class="container pt--0 pb--0">
+              <div class="slider-container">
+                <div class="row justify-content-center align-items-center">
+                  <div class="col-12 col-lg-8">
+                    <div class="slider-content">
+                      <h2 class="title"><span class="counter" data-counterup-delay="80">2,568</span> job available <br>You can choose your dream job</h2>
+                      <p class="desc">Find great job for build your bright career. Have many job in this plactform.</p>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="job-search-wrap">
+                      <div class="job-search-form">
+                        <form action="#">
+                          <div class="row row-gutter-10">
+                            <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Job title or keywords">
+                              </div>
+                            </div>
+                            <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
+                              <div class="form-group">
+                                <select class="form-control">
+                                  <option value="1" selected>Choose City</option>
+                                  <option value="2">New York</option>
+                                  <option value="3">California</option>
+                                  <option value="4">Illinois</option>
+                                  <option value="5">Texas</option>
+                                  <option value="6">Florida</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
+                              <div class="form-group">
+                                <select class="form-control">
+                                  <option value="1" selected>Category</option>
+                                  <option value="2">Web Designer</option>
+                                  <option value="3">Web Developer</option>
+                                  <option value="4">Graphic Designer</option>
+                                  <option value="5">App Developer</option>
+                                  <option value="6">UI &amp; UX Expert</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
+                              <div class="form-group">
+                                <button type="button" class="btn-form-search"><i class="icofont-search-1"></i></button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-slider-shape">
+        <img class="shape1" data-aos="fade-down" data-aos-duration="1500" src="{%static 'assets/img/slider/vector1.png' %}" width="270" height="234" alt="Image-HasTech">
+        <img class="shape2" data-aos="fade-left" data-aos-duration="2000" src="{%static 'assets/img/slider/vector2.png' %}" width="201" height="346" alt="Image-HasTech">
+        <img class="shape3" data-aos="fade-right" data-aos-duration="2000" src="{%static 'assets/img/slider/vector3.png' %}" width="276" height="432" alt="Image-HasTech">
+        <img class="shape4" data-aos="flip-left" data-aos-duration="1500" src="{%static 'assets/img/slider/vector4.png' %}" width="127" height="121" alt="Image-HasTech">
+      </div>
+    </section>
+    <!--== End Hero Area Wrapper ==-->
+
+    <!--== Start Job Category Area Wrapper ==-->
+    <section class="job-category-area">
+      <div class="container" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center">
+              <h3 class="title">Popular Category</h3>
+              <div class="desc">
+                <p>Most saught job categories</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-gutter-20" >
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start Job Category Item ==-->
+            <div class="job-category-item">
+              <div class="content">
+                <h3 class="title"><a href="">Cleaning <span>(305)</span></a></h3>
+              </div>
+              <a class="overlay-link" href=""></a>
+            </div>
+            <!--== End Job Category Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start Job Category Item ==-->
+            <div class="job-category-item">
+              <div class="content">
+                <h3 class="title"><a href="">Errands <span>(95)</span></a></h3>
+              </div>
+              <a class="overlay-link" href=""></a>
+            </div>
+            <!--== End Job Category Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start Job Category Item ==-->
+            <div class="job-category-item">
+              <div class="content">
+                <h3 class="title"><a href="">Cooking <span>(212)</span></a></h3>
+              </div>
+              <a class="overlay-link" href=""></a>
+            </div>
+            <!--== End Job Category Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start Job Category Item ==-->
+            <div class="job-category-item">
+              <div class="content">
+                <h3 class="title"><a href="">Repairs <span>(93)</span></a></h3>
+              </div>
+              <a class="overlay-link" href=""></a>
+            </div>
+            <!--== End Job Category Item ==-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Job Category Area Wrapper ==-->
+
+    <!--== Start Recent Job Area Wrapper ==-->
+    <section class="recent-job-area bg-color-gray">
+      <div class="container" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center">
+              <h3 class="title">Recent Job Circulars</h3>
+              <div class="desc">
+                <p>Recently added jobs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/1.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Darkento Ltd.</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Front-end Developer</a></h3>
+                <h5 class="work-type">Full-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/2.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Inspire Fitness Co.</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Senior UI Designer</a></h3>
+                <h5 class="work-type" data-text-color="#ff7e00">Part-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/3.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Cogent Data</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Graphic Designer</a></h3>
+                <h5 class="work-type" data-text-color="#0054ff">Remote</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/4.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Obelus Concepts</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">UX Researcher</a></h3>
+                <h5 class="work-type">Full-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/5.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Sanguine Skincare</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Android App Developer</a></h3>
+                <h5 class="work-type" data-text-color="#0054ff">Remote</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="job-details.html">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/6.jpg' %}" width="75" height="75" alt=""></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Flux Water Gear</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Product Designer</a></h3>
+                <h5 class="work-type">Full-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/7.jpg' %}" width="75" height="75" alt="Image-HasTech"></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Darkento Ltd.</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Front-end Developer</a></h3>
+                <h5 class="work-type">Full-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/8.jpg'%}" width="75" height="75" alt="Image-HasTech"></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Inspire Fitness Co.</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Senior UI Designer</a></h3>
+                <h5 class="work-type" data-text-color="#ff7e00">Part-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href=""><img src="{%static 'assets/img/companies/9.jpg' %}" width="75" height="75" alt="Image-HasTech"></a>
+                </div>
+                <div class="content">
+                  <h4 class="name"><a href="">Cogent Data</a></h4>
+                  <p class="address">New York, USA</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title"><a href="">Graphic Designer</a></h3>
+                <h5 class="work-type" data-text-color="#0054ff">Part-time</h5>
+                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>$5000</h4>
+                  <p>/monthly</p>
+                </div>
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+              </div>
+            </div>
+            <!--== End Recent Job Item ==-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Recent Job Area Wrapper ==-->
+
+    <!--== Start Work Process Area Wrapper ==-->
+    <section class="work-process-area">
+      <div class="container" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center" >
+              <h3 class="title">How It Works?</h3>
+              <div class="desc">
+                <p>Process of gettign a job</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="working-process-content-wrap">
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" src="{%static '' %}assets/img/icons/w1.png" alt="">
+                      <img class="icon-hover" src="{%static '' %}assets/img/icons/w1-hover.png" alt="">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Create an Account</h4>
+                    <p class="desc">It is long established fact reader distracted readable content</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{%static '' %}assets/img/icons/right-arrow.png" alt="">
+                    <img class="shape-icon-hover" src="{%static '' %}assets/img/icons/right-arrow2.png" alt="">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" src="{%static '' %}assets/img/icons/w2.png" alt="">
+                      <img class="icon-hover" src="{%static '' %}assets/img/icons/w2-hover.png" alt="">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">CV/Resume</h4>
+                    <p class="desc">It is long established fact reader distracted readable content</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{%static '' %}assets/img/icons/right-arrow.png" alt="">
+                    <img class="shape-icon-hover" src="{%static '' %}assets/img/icons/right-arrow2.png" alt="">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" src="{%static 'assets/img/icons/w3.png' %}" alt="">
+                      <img class="icon-hover" src="{%static 'assets/img/icons/w3-hover.png' %}" alt="">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Find Your Job</h4>
+                    <p class="desc">It is long established fact reader distracted readable content</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{%static 'assets/img/icons/right-arrow.png' %}" alt="">
+                    <img class="shape-icon-hover" src="{%static 'assets/img/icons/right-arrow2.png' %}" alt="">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" src="{%static 'assets/img/icons/w4.png' %}" alt="">
+                      <img class="icon-hover" src="{%static 'assets/img/icons/w4-hover.png' %}" alt="">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Save & Apply</h4>
+                    <p class="desc">It is long established fact reader distracted readable content</p>
+                  </div>
+                  <div class="shape-arrow-icon d-none">
+                    <img class="shape-icon" src="{%static 'assets/img/icons/right-arrow.png' %}" alt="">
+                    <img class="shape-icon-hover" src="{%static 'assets/img/icons/right-arrow2.png' %}" alt="">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Work Process Area Wrapper ==-->
+
+    <!--== Start Divider Area Wrapper ==-->
+    <section class="sec-overlay sec-overlay-theme bg-img">
+      <div class="container pt--0 pb--0">
+        <div class="row justify-content-center divider-style1">
+          <div class="col-lg-10 col-xl-7">
+            <div class="divider-content text-center">
+              <h4 class="sub-title" data-aos="fade-down">Trial Version Available</h4>
+              <h2 class="title" data-aos="fade-down">Download Our Mobile App. <br>You Can Ready Resume & Apply Job.</h2>
+              <div class="divider-btn-group">
+                <a class="btn-divider" data-aos="fade-down" href="page-not-found.html">
+                  <img src="{%static 'assets/img/photos/google-play.png' %}" width="201" height="63" class="icon" alt="">
+                </a>
+                <a class="btn-divider btn-divider-app-store" data-aos="fade-down" href="page-not-found.html">
+                  <img src="{% static 'assets/img/photos/mac-os.png' %}" width="201" height="63" class="icon" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-layer-style1"></div>
+      <div class="bg-layer-style2"></div>
+    </section>
+    <!--== End Divider Area Wrapper ==-->
+
+    <!--== Start Testimonial Area Wrapper ==-->
+    <section class="testimonial-area bg-color-gray">
+      <div class="container" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center" >
+              <h3 class="title">Our Happy Clients</h3>
+              <div class="desc">
+                <p>Feedback from our clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper testi-slider-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-author">
+                        <div class="testi-thumb">
+                          <img src="{%static 'assets/img/testimonial/1.jpg' %}" width="75" height="75" alt="">
+                        </div>
+                        <div class="testi-info">
+                          <h4 class="name">Roselia Hamets</h4>
+                          <span class="designation">Hiring Manager</span>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <div class="rating-box">
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                        </div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-author">
+                        <div class="testi-thumb">
+                          <img src="{%static 'assets/img/testimonial/2.jpg' %}" width="75" height="75" alt="">
+                        </div>
+                        <div class="testi-info">
+                          <h4 class="name">Assunta Manson</h4>
+                          <span class="designation">Hiring Manager</span>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <div class="rating-box">
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                        </div>
+                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-author">
+                        <div class="testi-thumb">
+                          <img src="{% static 'assets/img/testimonial/3.jpg' %}" width="75" height="75" alt="">
+                        </div>
+                        <div class="testi-info">
+                          <h4 class="name">Amira Shepard</h4>
+                          <span class="designation">Hiring Manager</span>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <div class="rating-box">
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                        </div>
+                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-author">
+                        <div class="testi-thumb">
+                          <img src="{%static 'assets/img/testimonial/4.jpg' %}" width="75" height="75" alt="">
+                        </div>
+                        <div class="testi-info">
+                          <h4 class="name">Joshua George</h4>
+                          <span class="designation">Hiring Manager</span>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <div class="rating-box">
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                        </div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-author">
+                        <div class="testi-thumb">
+                          <img src="{% static 'assets/img/testimonial/5.jpg'%}" width="75" height="75" alt="">
+                        </div>
+                        <div class="testi-info">
+                          <h4 class="name">Rosie Patton</h4>
+                          <span class="designation">Hiring Manager</span>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <div class="rating-box">
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                          <i class="icofont-star"></i>
+                        </div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+              </div>
+
+              <!--== Add Swiper Pagination ==-->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Testimonial Area Wrapper ==-->
+
+  </main>
+
+{%endblock%}
