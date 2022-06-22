@@ -18,6 +18,9 @@ path('employer/<str:name>', views.employer_details, name='employer'),
 
 path('candidates/', views.candidates, name='candidates'),
 path('candidate/<str:name>', views.candidate_details, name='candidate'),
+path('profile/', views.profile, name='profile'),
+path('apply/<str:pk>', views.apply_job, name='apply'),
+
 
 ]
 

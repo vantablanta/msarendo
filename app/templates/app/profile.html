@@ -1,0 +1,129 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<main class="main-content">
+  <!--== Start Page Header Area Wrapper ==-->
+  <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+    <div class="container pt--0 pb--0">
+      <div class="row">
+        <div class="col-12">
+          <div class="page-header-content">
+            <h2 class="title">My Profile</h2>
+            <nav class="breadcrumb-area">
+              <ul class="breadcrumb justify-content-center">
+                <li><a href="{%url 'home'%}">Home</a></li>
+                <li class="breadcrumb-sep">//</li>
+                <li>My Profile</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--== End Page Header Area Wrapper ==-->
+
+  <!--== Start Job Details Area Wrapper ==-->
+  <section class="job-details-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="job-details-wrap">
+            <div class="job-details-info">
+              <div class="thumb">
+                {%if profile.profile_pic%}
+                <img src="{{profile.profile_pic.url}}" width="130" height="130" alt="">
+                {%endif%}
+              </div>
+              <div class="content">
+                {%if profile.full_name%}
+                <h4 class="title">{{profile.full_name |capfirst}}</h4>
+                {%else%}
+                <h4 class="title">{{profile.owner.username}}</h4>
+                {%endif%}
+                <ul class="info-list">
+                  <li><i class="icofont-location-pin"></i> {{profile.location}}</li>
+                  {%if profile.owner.email%}
+                  <li><i class="icofont-email"></i> {{profile.owner.email}}</li>
+                  {%endif%}
+                </ul>
+              </div>
+            </div>
+            <div class="job-details-price">
+              <div class="title"><span>Active since {{profile.created | timesince}} ago</span></div>
+              <button type="button" class="btn-theme">Edit Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-xl-8">
+          <div class="job-details-item">
+            <div class="content">
+              <h4 class="title">Bio</h4>
+              <p class="desc">{{profile.about |capfirst}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-xl-4">
+          <div class="job-sidebar">
+          </div>
+        </div>
+        {%if request.user.profile.role == 'Client' %}
+        <div class="row">
+            <div class="col-12">
+              <div class="content mb--0 pb-2">
+                <h4 class="title">Open Positions</h4>
+              </div>
+            </div>
+            {%for job in jobs_posted%}
+            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+              <!--== Start Recent Job Item ==-->
+              <div class="recent-job-item recent-job-style3-item">
+                <div class="company-info">
+                  <div class="logo">
+                    <a href="">
+                      <img src="{{job.recruiter.profile_pic.url}}" width="75" height="75" alt="">
+                    </a>
+                  </div>
+                  <div class="content mb--0">
+                    {%if job.recruiter.full_name%}
+                    <h4 class="name"><a href="">{{job.recruiter.full_name}}</a></h4>
+                    {%else%}
+                    <h4 class="name"><a href="">{{job.recruiter.owner.username}}</a></h4>
+                    {%endif%}
+                    <p class="address">{{job.location}}</p>
+                  </div>
+                </div>
+                <div class="main-content">
+                  <h3 class="title">
+                    <a href="">{{job.title}}</a>
+                  </h3>
+                  <h5 class="work-type">Posted {{job.date_posted| timesince}} ago</h5>
+                </div>
+                <div class="recent-job-info">
+                  <div class="salary">
+                    <h4>Ksh{{job.pay}}</h4>
+                    <p>/day</p>
+                  </div>
+                {%if request.user.profile.role == 'Client' %}
+                <p></p>
+                {%else%}
+                <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
+                {%endif%}
+                </div>
+              </div>
+              <!--== End Recent Job Item ==-->
+            </div>
+            {%endfor%}
+        </div>
+        {%else%}
+
+        {%endif%}
+      </div>
+    </div>
+  </section>
+  <!--== End Job Details Area Wrapper ==-->
+</main>
+
+{%endblock%}

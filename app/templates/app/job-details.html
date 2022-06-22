@@ -43,7 +43,11 @@
             </div>
             <div class="job-details-price">
               <h4 class="title">Ksh{{job.pay}}</h4>
+              {%if request.user.profile.role == 'Client' and request.user == job.recruiter.owner %}
+              <button type="button" class="btn-theme">Edit Job</button>
+              {%else%}
               <button type="button" class="btn-theme">Apply Now</button>
+              {%endif%}
             </div>
           </div>
         </div>
@@ -63,7 +67,11 @@
                 consideration for work without regard to race, color, ancestry, religion, sex, sexual orientation,
                 age, citizenship, marital status, disability, gender identity, or any other basis protected by national,
                 county, or local law.</p>
-              <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
+                {%if request.user.profile.role == 'Client' %}
+                <p></p>
+                {%else%}
+                <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
+                {%endif%}
             </div>
           </div>
         </div>
@@ -105,6 +113,11 @@
                       <td class="table-name">Applicants</td>
                       <td class="dotted">:</td>
                       <td>Calculate Applicants</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Duration</td>
+                      <td class="dotted">:</td>
+                      <td data-text-color="#ff6000">{{job.duration}}</td>
                     </tr>
                   </tbody>
                 </table>

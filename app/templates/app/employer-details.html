@@ -83,7 +83,7 @@
                       </div>
                       <div class="content mb--0">
                         {%if employer.recruiter.full_name%}
-                        <h4 class="name"><a href="{%url 'employer' job.recruiter.owner.username %}">{{employer.recruiter.full_name}}</a></h4>
+                        <h4 class="name"><a href="{%url 'employer' employer.recruiter.owner.username %}">{{employer.recruiter.full_name}}</a></h4>
                         {%else%}
                         <h4 class="name"><a href="{%url 'employer' job.recruiter.owner.username %}">{{employer.recruiter.owner.username}}</a></h4>
                         {%endif%}

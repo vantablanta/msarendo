@@ -15,37 +15,45 @@
           <div class="header-align-center">
             <div class="header-navigation-area position-relative">
               <ul class="main-menu nav">
+              {%if request.user.is_authenticated%}
+                    {%if request.user.profile.role == 'Client' %}
+                      <li><a href="{%url 'home' %}"><span>Home</span></a></li>
+                      <li><a href="{%url 'about' %}"><span>About us</span></a></li>
+                      <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
+                      <li><a href="{%url 'profile' %}"><span>Profile</span></a></li>
+                      <li><a href="{%url 'candidates' %}"><span>Candidates</span></a></li>
+                      <li><a href="{%url 'logout' %}"><span>Logout</span></a></li>
+                      <div class="header-align-end">
+                        <div class="header-action-area">
+                          <a class="btn-registration" href=""><span>+</span>Post Job</a>
+                          <button class="btn-menu" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                            <i class="icofont-navigation-menu"></i>
+                          </button>
+                        </div>
+                      </div>
+                    {%else%}
+                      <li><a href="{%url 'home' %}"><span>Home</span></a></li>
+                      <li><a href="{%url 'jobs' %}"><span>Jobs</span></a></li>
+                      <li><a href="{%url 'about' %}"><span>About us</span></a></li>
+                      <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
+                      <li><a href="{%url 'profile' %}"><span>Profile</span></a></li>
+                      <li><a href="{%url 'logout' %}"><span>Logout</span></a></li>
+                      <div class="header-align-end">
+                        <div class="header-action-area">
+                          <a class="btn-registration" href=""><span>+</span>Apply for Job</a>
+                          <button class="btn-menu" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                            <i class="icofont-navigation-menu"></i>
+                          </button>
+                        </div>
+                      </div>
+                    {%endif%}
+              {%else%}
                 <li><a href="{%url 'home' %}"><span>Home</span></a></li>
                 <li><a href="{%url 'jobs' %}"><span>Jobs</span></a></li>
                 <li><a href="{%url 'about' %}"><span>About us</span></a></li>
                 <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
-                {%if request.user.is_authenticated%}
-                  <li><a href=""><span>Profile</span></a></li>
-                  <li><a href="{%url 'logout' %}"><span>Logout</span></a></li>
-                  {%if request.user.profile.role == 'Client' %}
-                  <li><a href="{%url 'candidates' %}"><span>Candidates</span></a></li>
-                  <li><a href="{%url 'logout' %}"><span>Logout</span></a></li>
-                  <div class="header-align-end">
-                    <div class="header-action-area">
-                      <a class="btn-registration" href=""><span>+</span>Post Job</a>
-                      <button class="btn-menu" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
-                        <i class="icofont-navigation-menu"></i>
-                      </button>
-                    </div>
-                  </div>
-                  {%else%}
-                  <div class="header-align-end">
-                    <div class="header-action-area">
-                      <a class="btn-registration" href=""><span>+</span>Apply for Job</a>
-                      <button class="btn-menu" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
-                        <i class="icofont-navigation-menu"></i>
-                      </button>
-                    </div>
-                  </div>
-                  {%endif%}
-                {%else%}
                 <li><a href="{%url 'login' %}"><span>Login</span></a></li>
                 <div class="header-align-end">
                   <div class="header-action-area">
@@ -56,7 +64,7 @@
                     </button>
                   </div>
                 </div>
-                {%endif%}
+              {%endif%}
               </ul>
             </div>
           </div>

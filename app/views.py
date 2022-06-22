@@ -94,3 +94,20 @@ def candidate_details(request, name):
     candidate = Candidate.objects.get(owner__owner__username = name)
     ctx = {'candidate': candidate}
     return render(request, 'app/candidate-details.html', ctx)
+
+def profile(request):
+    profile = Profile.objects.get(owner = request.user)
+    jobs_posted = Job.objects.filter(recruiter = profile)
+    candidate = Candidate.objects.filter(owner = profile)
+    ctx = {'profile': profile, 'jobs_posted': jobs_posted, 'candidate': candidate}
+    return render(request, 'app/profile.html', ctx)
+
+
+def apply_job(request, pk):
+   job = Job.objects.get(id = pk)
+   user = request.user
+   profile = Profile.objects.get(owner = user)
+   applicant = Candidate.objects.get(owner = profile)
+   job.applicants.add(applicant)
+   messages.success(request, 'Applied. Client notified')
+   return redirect('jobs')

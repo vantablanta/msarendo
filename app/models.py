@@ -42,6 +42,7 @@ class Job(models.Model):
     candidate_gender = models.CharField(max_length=300, default='Male or Female', blank=True)
     description = models.TextField()
     duration = models.CharField(max_length=255, default='1 day', blank=True)
+    applicants = models.ManyToManyField('Candidate', blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
