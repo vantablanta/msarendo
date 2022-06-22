@@ -1,0 +1,133 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<main class="main-content">
+  <!--== Start Page Header Area Wrapper ==-->
+  <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+    <div class="container pt--0 pb--0">
+      <div class="row">
+        <div class="col-12">
+          <div class="page-header-content">
+            <h2 class="title">Job Details</h2>
+            <nav class="breadcrumb-area">
+              <ul class="breadcrumb justify-content-center">
+                <li><a href="{%url 'home'%}">Home</a></li>
+                <li class="breadcrumb-sep">//</li>
+                <li>Job Details</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--== End Page Header Area Wrapper ==-->
+
+  <!--== Start Job Details Area Wrapper ==-->
+  <section class="job-details-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="job-details-wrap">
+            <div class="job-details-info">
+              <div class="thumb">
+                <img src="{{job.recruiter.profile_pic.url}}" width="130" height="130" alt="">
+              </div>
+              <div class="content">
+                <h4 class="title">{{job.title}}</h4>
+                <h5 class="sub-title">By &nbsp;{{job.recruiter.full_name | capfirst}}</h5>
+                <ul class="info-list">
+                  <li><i class="icofont-location-pin"></i> {{job.location}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="job-details-price">
+              <h4 class="title">Ksh{{job.pay}}</h4>
+              <button type="button" class="btn-theme">Apply Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-xl-8">
+          <div class="job-details-item">
+            <div class="content">
+              <h4 class="title">Description</h4>
+              <p class="desc">{{job.description |capfirst}}</p>
+
+            </div>
+            <div class="content">
+              <h4 class="title">Statement</h4>
+              <p class="desc">{{job.recruiter.full_name |capfirst}} is committed to creating the happiest environment
+                working in and is proud to provide equal opportunity to all. All the qualified applicants will receive
+                consideration for work without regard to race, color, ancestry, religion, sex, sexual orientation,
+                age, citizenship, marital status, disability, gender identity, or any other basis protected by national,
+                county, or local law.</p>
+              <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-xl-4">
+          <div class="job-sidebar">
+            <div class="widget-item">
+              <div class="widget-title">
+                <h3 class="title">Summary</h3>
+              </div>
+              <div class="summery-info">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="table-name">Job Type</td>
+                      <td class="dotted">:</td>
+                      <td data-text-color="#03a84e">{{job.type}}</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Posted</td>
+                      <td class="dotted">:</td>
+                      <td>{{job.date_posted |date:'d M Y' }}</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Pay</td>
+                      <td class="dotted">:</td>
+                      <td>Ksh {{job.pay}}</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Experience</td>
+                      <td class="dotted">:</td>
+                      <td>{{job.experience}}</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Gender</td>
+                      <td class="dotted">:</td>
+                      <td>{{job.candidate_gender}}</td>
+                    </tr>
+                    <tr>
+                      <td class="table-name">Applicants</td>
+                      <td class="dotted">:</td>
+                      <td>Calculate Applicants</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="widget-item">
+              <div class="widget-title">
+                <h3 class="title">Share With</h3>
+              </div>
+              <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="icofont-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener"><i class="icofont-twitter"></i></a>
+                <a href="https://www.skype.com" target="_blank" rel="noopener"><i class="icofont-skype"></i></a>
+                <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="icofont-pinterest"></i></a>
+                <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="icofont-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--== End Job Details Area Wrapper ==-->
+</main>
+
+{%endblock%}

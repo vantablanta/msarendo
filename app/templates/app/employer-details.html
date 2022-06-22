@@ -1,0 +1,116 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+ 
+<main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title">Employers Details</h2>
+              <nav class="breadcrumb-area">
+                <ul class="breadcrumb justify-content-center">
+                  <li><a href="{%url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-sep">//</li>
+                  <li>Employers</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start Employers Details Area Wrapper ==-->
+    <section class="employers-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="employers-details-wrap">
+              <div class="employers-details-info">
+                <div class="thumb">
+                  <img src="{{employer.recruiter.profile_pic.url}}" width="130" height="130" alt="">
+                </div>
+                <div class="content">
+                  <h4 class="title">{{employer.recruiter.full_name | capfirst}}</h4>
+                  <ul class="info-list">
+                    <li><i class="icofont-location-pin"></i>{{employer.recruiter.location}}</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="employers-counter">
+                <div class="counter-item">
+                  <h4 class="counter">2</h4>
+                  <h5 class="title">Total jobs</h5>
+                </div>
+                <div class="counter-item">
+                  <h4 class="counter">3</h4>
+                  <h5 class="title">Review</h5>
+                </div>
+                <div class="counter-item">
+                  <h4 class="counter">10</h4>
+                  <h5 class="title">Views</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 col-xl-8">
+            <div class="employers-details-item">
+              <div class="content">
+                <h4 class="title">About Employer</h4>
+                <p class="desc">{{employer.recruiter.about}}</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="content mb--0 pb-2">
+                    <h4 class="title">Open Positions</h4>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+
+                  <!--== Start Recent Job Item ==-->
+                  <div class="recent-job-item recent-job-style3-item">
+                    <div class="company-info">
+                      <div class="logo">
+                        <a href="">
+                          <img src="{{employer.recruiter.profile_pic.url}}" width="75" height="75" alt="">
+                        </a>
+                      </div>
+                      <div class="content mb--0">
+                        <h4 class="name"><a href="">{{employer.recruiter.full_name}}</a></h4>
+                        <p class="address">{{employer.location}}</p>
+                      </div>
+                    </div>
+                    <div class="main-content">
+                      <h3 class="title">
+                        <a href="{%url 'job' employer.title %}">{{employer.title}}</a>
+                      </h3>
+                      <p class="desc">{{employer.title}}</p>
+                    </div>
+                    <div class="recent-job-info">
+                      <div class="salary">
+                        <h4>Ksh{{employer.pay}}</h4>
+                        <p>/day</p>
+                      </div>
+                      <a class="btn-theme btn-sm" href="{%url 'job' employer.title %}">Apply Now</a>
+                    </div>
+                  </div>
+                  <!--== End Recent Job Item ==-->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Employers Details Area Wrapper ==-->
+</main>
+{%endblock%}
+
+ 

@@ -1,6 +1,8 @@
 from pathlib import Path
 import os 
 from dotenv import load_dotenv
+import cloudinary
+
 env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
 
@@ -112,5 +114,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+cloudinary.config( 
+    cloud_name = str(os.getenv('CLOUD_NAME')),
+    api_key = str(os.getenv('API_KEY')),
+    api_secret = str(os.getenv('API_SECRET')),
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
