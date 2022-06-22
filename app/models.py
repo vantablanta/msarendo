@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 ROLE = (
     ('Client','Client'),
-    ('Candidate','Candiate')
+    ('Candidate','Candidate')
 )
 
 class Profile(models.Model):
@@ -49,3 +49,27 @@ class Job(models.Model):
 
     class Meta():
         ordering = ['-date_posted']
+
+class Candidate(models.Model):
+    owner = models.OneToOneField(Profile, on_delete=models.CASCADE, primary_key=True, related_name='candidate')
+    headline = models.CharField(max_length=300, blank=True)
+    resume = models.FileField(upload_to='resumes', null=True, blank=True)
+
+    def __str__(self):
+        return self.owner.owner.username
+
+class SavedJobs(models.Model):
+    job = models.ForeignKey(Job, related_name='saved', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='saved', on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.job.title
+
+class AppliedJobs(models.Model):
+    job = models.ForeignKey(Job, related_name='applied', on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Candidate, related_name='applied_user', on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.job.title

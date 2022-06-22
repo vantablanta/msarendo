@@ -1,0 +1,113 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+  
+  <main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title">Candidate Details</h2>
+              <nav class="breadcrumb-area">
+                <ul class="breadcrumb justify-content-center">
+                  <li><a href="{%url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-sep">//</li>
+                  <li>Candidate Details</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start Team Details Area Wrapper ==-->
+    <section class="team-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="team-details-wrap">
+              <div class="team-details-info">
+                <div class="thumb">
+                  {%if candidate.owner.profile_pic%}
+                  <img src="{{candidate.owner.profile_pic.url}}" width="130" height="130" alt="">
+                  {%endif%}
+                </div>
+                <div class="content">
+                  {%if candidate.owner.full_name%}
+                  <h4 class="title">{{candidate.owner.full_name}}</h4>
+                  {%else%}
+                  <h4 class="title">{{candidate.owner.owner.username}}</h4>
+                  {%endif %}
+                  {%if candidate.owner.full_name%}
+                  <h5 class="sub-title">{{candidate.headline}}</h5>
+                  {%endif %}
+                  <ul class="info-list">
+                    <li><i class="icofont-location-pin"></i>{{candidate.owner.location}}</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-details-btn">
+                <button type="button" class="btn-theme btn-light">Short List</button>
+                <button type="button" class="btn-theme">Download Resume</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 col-xl-8">
+            <div class="team-details-item">
+              <div class="content">
+                <h4 class="title">About Candidate</h4>
+                <p class="desc">{{candidate.owner.about}}</p>
+              </div>                                             
+            </div>
+          </div>
+          <div class="col-lg-5 col-xl-4">
+            <div class="team-sidebar">                               
+              <div class="widget-item widget-contact">
+                <div class="widget-title">
+                  <h3 class="title">Contact Now</h3>
+                </div>
+                <div class="widget-contact-form">
+                  <form id="contact-form" action="https://whizthemes.com/mail-php/raju/arden/mail.php" method="POST">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_name" placeholder="Name:">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input class="form-control" type="email" name="con_email" placeholder="Email:">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <textarea class="form-control" name="con_message" placeholder="Message"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group mb--0">
+                          <button class="btn-theme d-block w-100" type="submit">Send Message</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                  <!--== Message Notification ==-->
+                  <div class="form-message"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Team Details Area Wrapper ==-->
+  </main>
+
+{%endblock%}             

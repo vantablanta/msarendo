@@ -120,5 +120,6 @@ cloudinary.config(
     api_key = str(os.getenv('API_KEY')),
     api_secret = str(os.getenv('API_SECRET')),
 )
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

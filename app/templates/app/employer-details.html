@@ -82,7 +82,11 @@
                         </a>
                       </div>
                       <div class="content mb--0">
-                        <h4 class="name"><a href="">{{employer.recruiter.full_name}}</a></h4>
+                        {%if employer.recruiter.full_name%}
+                        <h4 class="name"><a href="{%url 'employer' job.recruiter.owner.username %}">{{employer.recruiter.full_name}}</a></h4>
+                        {%else%}
+                        <h4 class="name"><a href="{%url 'employer' job.recruiter.owner.username %}">{{employer.recruiter.owner.username}}</a></h4>
+                        {%endif%}
                         <p class="address">{{employer.location}}</p>
                       </div>
                     </div>
@@ -90,7 +94,7 @@
                       <h3 class="title">
                         <a href="{%url 'job' employer.title %}">{{employer.title}}</a>
                       </h3>
-                      <p class="desc">{{employer.title}}</p>
+                      <h5 class="work-type">Posted {{employer.date_posted| timesince}} ago</h5>
                     </div>
                     <div class="recent-job-info">
                       <div class="salary">

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import RegisterForm
-from .models import Profile, Job
+from .models import Candidate, Profile, Job
 
 # Create your views here.
 def login_user(request):
@@ -40,6 +40,10 @@ def register_user(request):
             profile = Profile.objects.create(owner=user, role=role)
             profile.save()
 
+            if role == 'Candidate':
+                candidate = Candidate.objects.create(owner=profile)
+                candidate.save()
+
             return redirect('home')
 
     ctx = {'form': form}
@@ -50,7 +54,9 @@ def logout_user(request):
     return redirect('home')
 
 def home(request):
-    return render(request, 'app/index.html' )
+    jobs = Job.objects.all()
+    ctx = {'jobs': jobs}
+    return render(request, 'app/index.html', ctx )
 
 def about(request):
     return render(request, 'app/about.html' )
@@ -75,6 +81,16 @@ def job_details(request, name):
     return render(request, 'app/job-details.html', ctx)
 
 def employer_details(request, name):
-    employer = Job.objects.get(recruiter__full_name = name)
+    employer = Job.objects.get(recruiter__owner__username = name)
     ctx = {'employer':employer}
     return render(request, 'app/employer-details.html', ctx)
+
+def candidates(request):
+    candidates = Candidate.objects.all()
+    ctx = {'candidates': candidates}
+    return render(request, 'app/candidates.html', ctx)
+
+def candidate_details(request, name):
+    candidate = Candidate.objects.get(owner__owner__username = name)
+    ctx = {'candidate': candidate}
+    return render(request, 'app/candidate-details.html', ctx)
