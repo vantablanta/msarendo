@@ -165,7 +165,11 @@
                   <h4>Ksh.{{job.pay}}</h4>
                   <p>/day</p>
                 </div>
+                {%if request.user.profile.role == 'Client' %}
+                <div></div>
+                {%else%}
                 <a class="btn-theme btn-sm" href="{%url 'apply' job.id%}">Apply Now</a>
+                {%endif%}
               </div>
             </div>
             <!--== End Recent Job Item ==-->
