@@ -1,0 +1,6 @@
+Hello {{username}}
+
+A client is interested in hirign you! Login to Msarendo to see who.
+
+Regards, 
+Msarendo Team.

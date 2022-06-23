@@ -46,13 +46,17 @@
                   <h5 class="sub-title">{{candidate.headline}}</h5>
                   {%endif %}
                   <ul class="info-list">
+                    {%if candidate.location%}
                     <li><i class="icofont-location-pin"></i>{{candidate.owner.location}}</li>
+                    {%endif%}
                   </ul>
                 </div>
               </div>
               <div class="team-details-btn">
                 <a href="{%url 'contract' candidate.owner.owner.username %}" class="btn-theme btn-light">Short List</a>
+                {%if candidate.resume%}
                 <a class="btn-theme" href="{{ candidate.resume.url}}" download>Resume</a>
+                {%endif%}
               </div>
             </div>
           </div>

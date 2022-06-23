@@ -21,10 +21,23 @@ def send_new_applicant_email(username,receiver):
     sender = 'michellenjeri54@gmail.com'
 
     #passing in the context vairables
-    text_content = render_to_string('email/welcome.txt',{"username": username})
-    html_content = render_to_string('email/welcome.html',{"username": username})
+    text_content = render_to_string('email/new-apply.txt',{"username": username})
+    html_content = render_to_string('email/new-apply.html',{"username": username})
 
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')
     msg.send()
 
+
+def interest(username,receiver):
+    # Creating message subject and sender
+    subject = 'Congratulation! A client is interested in hiring you. '
+    sender = 'michellenjeri54@gmail.com'
+
+    #passing in the context vairables
+    text_content = render_to_string('email/interest.txt',{"username": username})
+    html_content = render_to_string('email/interest.html',{"username": username})
+
+    msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
+    msg.attach_alternative(html_content,'text/html')
+    msg.send()

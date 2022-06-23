@@ -1,0 +1,1 @@
+web: gunicorn msarendo.wsgi --log-file -

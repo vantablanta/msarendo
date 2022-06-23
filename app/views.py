@@ -7,7 +7,7 @@ from django.contrib import messages
 from .forms import PostJobForm, RegisterForm, UpdateProfileForm, UploadResumeForm
 from .models import AppliedJobs, Candidate, Profile, Job, Hired, Contact
 from django.db.models import Q
-from .emails import send_welcome_email, send_new_applicant_email
+from .emails import interest, send_welcome_email, send_new_applicant_email
 
 
 # Create your views here.
@@ -229,13 +229,20 @@ def apply_job(request, pk):
 def contract(request, name):
     candidate = Candidate.objects.get(owner__owner__username = name)
     job = Job.objects.filter(applicants = candidate).first()
+
+    email = candidate.owner.owner.email
+    username =  candidate.owner.owner.username
+
     if request.method == 'POST':
         new_match = Hired.objects.create(job = job, candidate=candidate)
         new_match.save()
-
         job.delete()
 
         return redirect('candidates')
+
+    recipient = User(username=username, email=email )
+    interest(username, email)
+    
     ctx = {'candidate' : candidate, 'job' : job}
     return render(request, 'app/contract.html', ctx)
 
@@ -248,7 +255,8 @@ def search(request):
     query  = request.GET.get('query')
     if query:
         jobs = Job.objects.filter(
-            Q (title__icontains=query)
+            Q (title__icontains=query)|
+            Q (location__icontains=query)
         )
     ctx = {'jobs': jobs}
     return render(request, 'app/search.html', ctx)

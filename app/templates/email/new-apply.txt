@@ -1,3 +1,6 @@
 Hello {{username}}
 
-You have a new application pendng your review. Log into msarendo to review the candidate.
+You have a new application pendng your review. Log into msarendo to review the candidate(s).
+
+Regards,
+Msarendo Team.

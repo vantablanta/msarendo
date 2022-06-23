@@ -1,3 +1,6 @@
 Hello {{username}}
 
 Welcome to Msarendo. We value and appreciate the fact that you have choses to join our community.
+
+Regards, 
+Msarendo Team.

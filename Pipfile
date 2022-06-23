@@ -10,6 +10,10 @@ psycopg2 = "*"
 cloudinary = "*"
 autopep8 = "*"
 pillow = "*"
+gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [dev-packages]
 
