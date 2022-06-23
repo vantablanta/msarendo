@@ -7,7 +7,7 @@ from django.contrib import messages
 from .forms import PostJobForm, RegisterForm, UpdateProfileForm, UploadResumeForm
 from .models import AppliedJobs, Candidate, Profile, Job, Hired, Contact
 from django.db.models import Q
-from .emails import send_welcome_email
+from .emails import send_welcome_email, send_new_applicant_email
 
 
 # Create your views here.
@@ -58,7 +58,7 @@ def register_user(request):
             
             login(request, user)
             return redirect('profile')
-            
+
     ctx = {'form': form}
     return render(request, 'app/register.html', ctx)
 
@@ -216,6 +216,12 @@ def apply_job(request, pk):
     new_candidate.save()
 
     messages.success(request, f'You have successfully applied for the {job.title} Job. The client has been notified. All the best.')
+    
+    email = job.recruiter.owner.email
+    username =  job.recruiter.owner.username
+    recipient = User(username=username, email=email )
+    send_new_applicant_email(username, email)
+
     return redirect('jobs' )
 
 

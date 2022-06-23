@@ -33,11 +33,13 @@
           <!--== Start Team Item ==-->
           <div class="team-item">
             <div class="thumb">
-              <a href="">
+              <div>
                 {%if candidate.owner.profile_pic%}
                 <img src="{{candidate.owner.profile_pic.url}}" width="160" height="160" alt="">
+                {%else%}
+                <p>Candidate hasn't completed editign their profile</p>
                 {%endif%}
-              </a>
+              </div>
             </div>
             <div class="content">
               {%if candidate.owner.full_name%}
@@ -45,7 +47,9 @@
               {%else%}
               <h4 class="title"><a href="{%url 'candidate' candidate.owner.owner.username%}">{{candidate.owner.owner.username}}</a></h4>
               {%endif%}
+              {%if candidate.headline%}
               <h5 class="sub-title">{{candidate.headline}}</h5>
+              {%endif%}
               <div class="rating-box">
                 <i class="icofont-star"></i>
                 <i class="icofont-star"></i>
