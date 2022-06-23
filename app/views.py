@@ -78,8 +78,7 @@ def contact(request):
         new_message = Contact.objects.create(name= name, email=email, 
         subject=subject, message=message, owner = owner)
         new_message.save()
-
-        return redirect('home')
+        return redirect('app.home')
 
     return render(request, 'app/contact.html')
 
@@ -144,11 +143,13 @@ def candidates(request):
     ctx = {'candidates': candidates}
     return render(request, 'app/candidates.html', ctx)
 
+
 @login_required(login_url='login')
 def candidate_details(request, name):
     candidate = Candidate.objects.get(owner__owner__username=name)
     ctx = {'candidate': candidate}
     return render(request, 'app/candidate-details.html', ctx)
+
 
 @login_required(login_url='login')
 def profile(request):
@@ -162,6 +163,7 @@ def profile(request):
     ctx = {'profile': profile, 'jobs_posted': jobs_posted,
         'candidate': candidate, 'applied_jobs': applied_jobs}
     return render(request, 'app/profile.html', ctx)
+
 
 @login_required(login_url='login')
 def edit_profile(request):
