@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -78,7 +79,8 @@ def contact(request):
         new_message = Contact.objects.create(name= name, email=email, 
         subject=subject, message=message, owner = owner)
         new_message.save()
-        return redirect('app.home')
+
+        return redirect(home)
 
     return render(request, 'app/contact.html')
 
@@ -208,6 +210,7 @@ def contract(request, name):
     if request.method == 'POST':
         new_match = Hired.objects.create(job = job, candidate=candidate)
         new_match.save()
+        return redirect('candidates')
     ctx = {'candidate' : candidate, 'job' : job}
     return render(request, 'app/contract.html', ctx)
 

@@ -181,7 +181,6 @@
     $('.video-popup').fancybox();
 
   // Ajax Contact Form JS
-    var form = $('#contact-form');
     var formMessages = $('.form-message');
 
     $(form).submit(function(e) {
@@ -201,7 +200,7 @@
         formMessages.append(response);
 
         // Clear the form.
-        $('#contact-form input,#contact-form textarea').val('');
+        
       }).fail(function(data) {
         // Make sure that the formMessages div has the 'error' class.
         $(formMessages).removeClass('alert alert-success');
