@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Msarendo - Job Portal"/>
-    <meta name="keywords" content="freelance, "/>
-    <meta name="author" content=""/>
+    <meta name="description" content="Msarendo - Job Portal" />
+    <meta name="keywords" content="freelance, " />
+    <meta name="author" content="" />
 
     <title>Msarendo</title>
 
@@ -18,7 +18,9 @@
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
     {%block styles%}
@@ -33,9 +35,9 @@
 </head>
 
 <body>
-    <div class="wrapper">  
-                
-        {%include 'nav.html' %}    
+    <div class="wrapper">
+
+        {%include 'nav.html' %}
         {%block body%}
 
 
@@ -45,100 +47,125 @@
         <footer class="footer-area">
             <!--== Start Footer Top ==-->
             <div class="footer-top">
-            <div class="container pt--0 pb--0">
-                <div class="row">
-                <div class="col-lg-5">
-                    <div class="footer-newsletter-content">
-                    <h4 class="title">Subscribe for everyday job newsletter.</h4>
+                <div class="container pt--0 pb--0">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="footer-newsletter-content">
+                                <h4 class="title">Subscribe for everyday job newsletter.</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="footer-newsletter-form">
+                                <form action="#">
+                                    <input type="email" placeholder="Enter your email">
+                                    <button type="submit" class="btn-newsletter">Subscribe Now</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="footer-newsletter-form">
-                    <form action="#">
-                        <input type="email" placeholder="Enter your email">
-                        <button type="submit" class="btn-newsletter">Subscribe Now</button>
-                    </form>
-                    </div>
-                </div>
-                </div>
-            </div>
             </div>
             <!--== End Footer Top ==-->
 
             <!--== Start Footer Main ==-->
             <div class="footer-main">
-            <div class="container pt--0 pb--0">
-                <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="widget-item widget-about">
-                    <div class="widget-logo-area">
-                        <a href="index.html">
-                        <img class="logo-main" src="{%static 'assets/img/logo-light-theme.png' %}" alt="Logo" />
-                        </a>
-                    </div>
-                    <p class="desc">That necessitat ecommerce platform that optimi your store popularised the release</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="icofont-facebook"></i></a>
-                        <a href="https://www.skype.com" target="_blank" rel="noopener"><i class="icofont-skype"></i></a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener"><i class="icofont-twitter"></i></a>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
+                <div class="container pt--0 pb--0">
                     <div class="row">
-                    <div class="col-md-3 col-lg-3">
-                        <div class="widget-item nav-menu-item1">
-                        <h4 class="widget-title">Company</h4>
-                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-1">Company</h4>
-                        <div id="widgetId-1" class="collapse widget-collapse-body">
-                            <div class="collapse-body">
-                            <div class="widget-menu-wrap">
-                                <ul class="nav-menu">
-                                <li><a href="{%url 'about' %}">About Us</a></li>
-                                <li><a href="{%url 'contact'%}">ContactUs</a></li>
-   
-                                </ul>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                        <div class="widget-item nav-menu-item2">
-                        <h4 class="widget-title">Resources</h4>
-                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-2">Resources</h4>
-                        <div id="widgetId-2" class="collapse widget-collapse-body">
-                            <div class="collapse-body">
-                            <div class="widget-menu-wrap">
-                                <ul class="nav-menu">
-                                <li><a href="{%url 'login' %}">Quick Links</a></li>
-                                <li><a href="{%url 'jobs' %}">Jobs Listing</a></li>
-                                </ul>
-                            </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="widget-item widget-about">
+                                <div class="widget-logo-area">
+                                    <a href="index.html">
+                                        <img class="logo-main" src="{%static 'assets/img/logo-light-theme.png' %}"
+                                            alt="Logo" />
+                                    </a>
+                                </div>
+                                <p class="desc">Msarendo is a platform for casual to easily and securely get verifed
+                                    jobs.</p>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/vantablanta" target="_blank" rel="noopener"><i
+                                            class="icofont-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/michelle-njeri/" target="_blank"
+                                        rel="noopener"><i class="icofont-linkedin"></i></a>
+                                    <a href="https://twitter.com/vantablanta" target="_blank" rel="noopener"><i
+                                            class="icofont-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="widget-item nav-menu-item1">
+                                        <h4 class="widget-title">Company</h4>
+                                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#widgetId-1">Company</h4>
+                                        <div id="widgetId-1" class="collapse widget-collapse-body">
+                                            <div class="collapse-body">
+                                                <div class="widget-menu-wrap">
+                                                    <ul class="nav-menu">
+                                                        <li><a href="{%url 'about' %}">About Us</a></li>
+                                                        <li><a href="{%url 'contact'%}">Contact Us</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="widget-item nav-menu-item2">
+                                        <h4 class="widget-title">Valuable</h4>
+                                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#widgetId-2">Resources</h4>
+                                        <div id="widgetId-2" class="collapse widget-collapse-body">
+                                            <div class="collapse-body">
+                                                <div class="widget-menu-wrap">
+                                                    <ul class="nav-menu">
+                                                        <li><a href="{%url 'login' %}">Quick Links</a></li>
+                                                        <li><a href="{%url 'jobs' %}">Jobs Listing</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="widget-item nav-menu-item1">
+                                        <h4 class="widget-title">Resources</h4>
+                                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#widgetId-1">Company</h4>
+                                        <div id="widgetId-1" class="collapse widget-collapse-body">
+                                            <div class="collapse-body">
+                                                <div class="widget-menu-wrap">
+                                                    <ul class="nav-menu">
+                                                        <li><a href="{%url 'profile' %}">Dashboard</a></li>
+                                                        <li><a href="{%url 'candidates'%}">Candidates</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </div>
             <!--== End Footer Main ==-->
 
             <!--== Start Footer Bottom ==-->
             <div class="footer-bottom">
-            <div class="container pt--0 pb--0">
-                <div class="row">
-                <div class="col-12">
-                    <div class="footer-bottom-content">
-                    <p class="copyright">© 2022 Msarendo. Made with <i class="icofont-heart"></i> by
-                        <a target="_blank" href="https://github.com/vantablanta">Michelle</a>
-                    </p>
+                <div class="container pt--0 pb--0">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="footer-bottom-content">
+                                <p class="copyright">© 2022 Msarendo. Made with <i class="icofont-heart"></i> by
+                                    <a target="_blank" href="https://github.com/vantablanta">Michelle</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </div>
             <!--== End Footer Bottom ==-->
         </footer>
@@ -148,24 +175,26 @@
         <div id="scroll-to-top" class="scroll-to-top"><span class="icofont-rounded-up"></span></div>
 
         <!--== Start Aside Menu ==-->
-        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+        <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu"
+            aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-            <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
-            <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="icofont-simple-left"></i></button>
+                <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
+                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i
+                        class="icofont-simple-left"></i></button>
             </div>
             <div class="offcanvas-body">
-            <!-- Mobile Menu Start -->
-            <div class="mobile-menu-items">
-                <ul class="nav-menu">
-                    <li><a href="{%url 'home' %}"><span>Home</span></a></li>
-                    <li><a href="{%url 'jobs' %}"><span>Jobs</span></a></li>
-                    <li><a href="{%url 'about' %}"><span>About us</span></a></li>
-                    <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
-                    <li><a href="{%url 'login' %}"><span>Login</span></a></li>
-    
-                </ul>
-            </div>
-            <!-- Mobile Menu End -->
+                <!-- Mobile Menu Start -->
+                <div class="mobile-menu-items">
+                    <ul class="nav-menu">
+                        <li><a href="{%url 'home' %}"><span>Home</span></a></li>
+                        <li><a href="{%url 'jobs' %}"><span>Jobs</span></a></li>
+                        <li><a href="{%url 'about' %}"><span>About us</span></a></li>
+                        <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
+                        <li><a href="{%url 'login' %}"><span>Login</span></a></li>
+
+                    </ul>
+                </div>
+                <!-- Mobile Menu End -->
             </div>
         </aside>
         <!--== End Aside Menu ==-->
@@ -173,9 +202,9 @@
 
         {%block scripts%}
 
-        <script src="{% static 'assets/js/modernizr.js'%}" ></script>
+        <script src="{% static 'assets/js/modernizr.js'%}"></script>
         <script src="{% static 'assets/js/jquery-main.js'%}"></script>
-        <script src="{% static 'assets/js/jquery-migrate.js'%}" ></script>
+        <script src="{% static 'assets/js/jquery-migrate.js'%}"></script>
         <script src="{% static 'assets/js/popper.min.js' %}"></script>
         <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
         <script src="{% static 'assets/js/swiper.min.js' %}"></script>
@@ -184,7 +213,7 @@
         <script src="{% static 'assets/js/counterup.js' %}"></script>
         <script src="{% static 'assets/js/waypoint.js' %}"></script>
         <script src="{% static 'assets/js/custom.js' %}"></script>
-    
+
         {%endblock%}
 
 

@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import PostJobForm, RegisterForm, UpdateProfileForm
+from .forms import PostJobForm, RegisterForm, UpdateProfileForm, UploadResumeForm
 from .models import AppliedJobs, Candidate, Profile, Job, Hired, Contact
 
 # Create your views here.
@@ -157,13 +157,19 @@ def candidate_details(request, name):
 def profile(request):
     profile = Profile.objects.get(owner=request.user)
     jobs_posted = Job.objects.filter(recruiter=profile)
-
-    candidate = Candidate.objects.filter(owner=profile)
+    form = UploadResumeForm()
+    candidate = Candidate.objects.filter(owner=profile).first()
 
     applied_jobs = AppliedJobs.objects.filter(candidate__owner=profile)
 
+    if request.method == 'POST':
+        form = UploadResumeForm(request.POST, request.FILES, instance=candidate)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
     ctx = {'profile': profile, 'jobs_posted': jobs_posted,
-        'candidate': candidate, 'applied_jobs': applied_jobs}
+        'candidate': candidate, 'applied_jobs': applied_jobs, 'form':form}
+
     return render(request, 'app/profile.html', ctx)
 
 
@@ -213,5 +219,8 @@ def contract(request, name):
         return redirect('candidates')
     ctx = {'candidate' : candidate, 'job' : job}
     return render(request, 'app/contract.html', ctx)
+
+def page_404(request):
+    return render(request, 'app/page-404.html')
 
 

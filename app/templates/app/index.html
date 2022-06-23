@@ -203,7 +203,7 @@
                   </div>
                   <div class="content">
                     <h4 class="title">Create an Account</h4>
-                    <p class="desc">It is long established fact reader distracted readable content</p>
+                    <p class="desc">Signup as  to post jobs  or apply for them.</p>
                   </div>
                   <div class="shape-arrow-icon">
                     <img class="shape-icon" src="{%static '' %}assets/img/icons/right-arrow.png" alt="">
@@ -223,7 +223,7 @@
                   </div>
                   <div class="content">
                     <h4 class="title">CV/Resume</h4>
-                    <p class="desc">It is long established fact reader distracted readable content</p>
+                    <p class="desc">Upload your resume to make it available to employers</p>
                   </div>
                   <div class="shape-arrow-icon">
                     <img class="shape-icon" src="{%static '' %}assets/img/icons/right-arrow.png" alt="">
@@ -243,7 +243,7 @@
                   </div>
                   <div class="content">
                     <h4 class="title">Find Your Job</h4>
-                    <p class="desc">It is long established fact reader distracted readable content</p>
+                    <p class="desc">Check out a variety of jobs and details about who posted it.</p>
                   </div>
                   <div class="shape-arrow-icon">
                     <img class="shape-icon" src="{%static 'assets/img/icons/right-arrow.png' %}" alt="">
@@ -262,8 +262,8 @@
                     </div>
                   </div>
                   <div class="content">
-                    <h4 class="title">Save & Apply</h4>
-                    <p class="desc">It is long established fact reader distracted readable content</p>
+                    <h4 class="title">Apply</h4>
+                    <p class="desc">Easily send an application by clicking one button.</p>
                   </div>
                   <div class="shape-arrow-icon d-none">
                     <img class="shape-icon" src="{%static 'assets/img/icons/right-arrow.png' %}" alt="">
@@ -286,13 +286,10 @@
           <div class="col-lg-10 col-xl-7">
             <div class="divider-content text-center">
               <h4 class="sub-title" data-aos="fade-down">Trial Version Available</h4>
-              <h2 class="title" data-aos="fade-down">Download Our Mobile App. <br>You Can Ready Resume & Apply Job.</h2>
+              <h2 class="title" data-aos="fade-down">Download Our Mobile App. <br> For Better Mobile Experince</h2>
               <div class="divider-btn-group">
-                <a class="btn-divider" data-aos="fade-down" href="page-not-found.html">
+                <a class="btn-divider" data-aos="fade-down" href="{%url 'page-404' %}">
                   <img src="{%static 'assets/img/photos/google-play.png' %}" width="201" height="63" class="icon" alt="">
-                </a>
-                <a class="btn-divider btn-divider-app-store" data-aos="fade-down" href="page-not-found.html">
-                  <img src="{% static 'assets/img/photos/mac-os.png' %}" width="201" height="63" class="icon" alt="">
                 </a>
               </div>
             </div>
@@ -309,33 +306,36 @@
       <div class="container" data-aos="fade-down">
         <div class="row">
           <div class="col-12">
-            <div class="section-title text-center" >
+            <div class="section-title text-center" data-aos="fade-down">
               <h3 class="title">Our Happy Clients</h3>
               <div class="desc">
-                <p>Feedback from our clients</p>
+                <p>Check reviews from some of our clients</p>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
+          <div class="col-12" data-aos="fade-down">
             <div class="swiper testi-slider-container">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <!--== Start Testimonial Item ==-->
-                  <div class="testimonial-item">
+                  <div class="testimonial-item testimonial-style2-item">
                     <div class="testi-inner-content">
                       <div class="testi-author">
                         <div class="testi-thumb">
-                          <img src="{%static 'assets/img/testimonial/1.jpg' %}" width="75" height="75" alt="">
+                          <img src="{%static 'assets/img/testimonial/1.jpg' %}" width="75" height="75" alt="Image-HasTech">
                         </div>
                         <div class="testi-info">
-                          <h4 class="name">Roselia Hamets</h4>
-                          <span class="designation">Hiring Manager</span>
+                          <h4 class="name">Roselia Msungu</h4>
+                          <span class="designation">Client</span>
                         </div>
                       </div>
                       <div class="testi-content">
-                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <p class="desc">
+                          I found Msarendo through a Google search and I'm so glad I did. I was looking to improve my resume, 
+                          and the company had an extensive list of services they provided. 
+                        </p>
                         <div class="rating-box">
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
@@ -343,7 +343,7 @@
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
                         </div>
-                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
                       </div>
                     </div>
                   </div>
@@ -351,19 +351,22 @@
                 </div>
                 <div class="swiper-slide">
                   <!--== Start Testimonial Item ==-->
-                  <div class="testimonial-item">
+                  <div class="testimonial-item testimonial-style2-item">
                     <div class="testi-inner-content">
                       <div class="testi-author">
                         <div class="testi-thumb">
-                          <img src="{%static 'assets/img/testimonial/2.jpg' %}" width="75" height="75" alt="">
+                          <img src="{%static 'assets/img/testimonial/2.jpg' %}" width="75" height="75" alt="Image-HasTech">
                         </div>
                         <div class="testi-info">
-                          <h4 class="name">Assunta Manson</h4>
-                          <span class="designation">Hiring Manager</span>
+                          <h4 class="name">Assunta Mwangi</h4>
+                          <span class="designation">Client</span>
                         </div>
                       </div>
                       <div class="testi-content">
-                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <p class="desc">
+                          They also handled everything very quickly and professionally. 
+                          They have currently helped me snag an interview with a major company in the area, and it wouldn't have
+                        </p>
                         <div class="rating-box">
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
@@ -371,7 +374,7 @@
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
                         </div>
-                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
                       </div>
                     </div>
                   </div>
@@ -379,19 +382,21 @@
                 </div>
                 <div class="swiper-slide">
                   <!--== Start Testimonial Item ==-->
-                  <div class="testimonial-item">
+                  <div class="testimonial-item testimonial-style2-item">
                     <div class="testi-inner-content">
                       <div class="testi-author">
                         <div class="testi-thumb">
-                          <img src="{% static 'assets/img/testimonial/3.jpg' %}" width="75" height="75" alt="">
+                          <img src="{%static 'assets/img/testimonial/3.jpg' %}" width="75" height="75" alt="Image-HasTech">
                         </div>
                         <div class="testi-info">
-                          <h4 class="name">Amira Shepard</h4>
-                          <span class="designation">Hiring Manager</span>
+                          <h4 class="name">Amira Hassan</h4>
+                          <span class="designation">Client</span>
                         </div>
                       </div>
                       <div class="testi-content">
-                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <p class="desc">Msarendo is the best recruitment site for casual workers. I have been using it for over two years and am always on
+                           the lookout for opportunities to make some extra money in my spare time. 
+                        </p>
                         <div class="rating-box">
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
@@ -399,7 +404,7 @@
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
                         </div>
-                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
                       </div>
                     </div>
                   </div>
@@ -407,19 +412,22 @@
                 </div>
                 <div class="swiper-slide">
                   <!--== Start Testimonial Item ==-->
-                  <div class="testimonial-item">
+                  <div class="testimonial-item testimonial-style2-item">
                     <div class="testi-inner-content">
                       <div class="testi-author">
                         <div class="testi-thumb">
-                          <img src="{%static 'assets/img/testimonial/4.jpg' %}" width="75" height="75" alt="">
+                          <img src="{%static 'assets/img/testimonial/4.jpg' %}" width="75" height="75" alt="Image-HasTech">
                         </div>
                         <div class="testi-info">
-                          <h4 class="name">Joshua George</h4>
-                          <span class="designation">Hiring Manager</span>
+                          <h4 class="name">Joshua Kasuku</h4>
+                          <span class="designation">Client</span>
                         </div>
                       </div>
                       <div class="testi-content">
-                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <p class="desc">
+                          I also like how it provides you with the specific skills and experience of people who have applied without 
+                          having to click on them first. Thanks to this, it only took me 10
+                        </p>
                         <div class="rating-box">
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
@@ -427,7 +435,7 @@
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
                         </div>
-                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt="Image-HasTech"></div>
                       </div>
                     </div>
                   </div>
@@ -435,19 +443,22 @@
                 </div>
                 <div class="swiper-slide">
                   <!--== Start Testimonial Item ==-->
-                  <div class="testimonial-item">
+                  <div class="testimonial-item testimonial-style2-item">
                     <div class="testi-inner-content">
                       <div class="testi-author">
                         <div class="testi-thumb">
-                          <img src="{% static 'assets/img/testimonial/5.jpg'%}" width="75" height="75" alt="">
+                          <img src="{%static 'assets/img/testimonial/5.jpg' %} " width="75" height="75" alt="Image-HasTech">
                         </div>
                         <div class="testi-info">
-                          <h4 class="name">Rosie Patton</h4>
-                          <span class="designation">Hiring Manager</span>
+                          <h4 class="name">Rosie Gitau</h4>
+                          <span class="designation">Client</span>
                         </div>
                       </div>
                       <div class="testi-content">
-                        <p class="desc">It is a long established fact that reader will distracted the readable content page looking at its layout point using that has more-or-less normal distribution of letters opposed using content making.</p>
+                        <p class="desc">
+                          I have been using casual recruitment sites for a while now and I can say that Msarendo is the best one around. 
+                          It has the most listings and offers a great interface to browse through. 
+                        </p>
                         <div class="rating-box">
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
@@ -455,7 +466,7 @@
                           <i class="icofont-star"></i>
                           <i class="icofont-star"></i>
                         </div>
-                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %}" alt=""></div>
+                        <div class="testi-quote"><img src="{%static 'assets/img/icons/quote1.png' %} " alt="Image-HasTech"></div>
                       </div>
                     </div>
                   </div>

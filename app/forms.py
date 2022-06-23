@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import  Profile, Job
+from .models import  Candidate, Profile, Job
 
 
 class RegisterForm(UserCreationForm):
@@ -47,4 +47,11 @@ class UpdateProfileForm(ModelForm):
     class Meta():
         model = Profile
         fields = ['full_name', 'location', 'about', 'profile_pic']
+
+class UploadResumeForm(ModelForm):
+    resume = forms.FileField(max_length=200,label='upload resume',widget=forms.FileInput(attrs={'class': 'form-control mb-4'}))
+    
+    class Meta():
+        model = Candidate
+        fields = ['resume']
 

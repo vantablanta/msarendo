@@ -52,6 +52,38 @@
             <div class="job-details-price">
               <div class="title"><span>Active since {{profile.created | timesince}} ago</span></div>
               <a href="{%url 'edit-profile' %}" class="btn-theme">Edit Profile</a>
+              {%if request.user.profile.role == 'Candidate' %}
+              <a href="" class="btn-theme" data-bs-toggle="modal" data-bs-target="#exampleModal">Upload Resume</a>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Upload Resume</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="" method="POST">
+                        {%csrf_token%}
+                        {{form}}
+                        <button type="submit" class="btn-theme">Upload</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+              {%endif%}
             </div>
           </div>
         </div>
@@ -71,41 +103,41 @@
         </div>
         {%if request.user.profile.role == 'Client' %}
         <div class="row">
-            <div class="col-12">
-              <div class="content mb--0 pb-2">
-                <h4 class="title">Open Positions</h4>
-              </div>
+          <div class="col-12">
+            <div class="content mb--0 pb-2">
+              <h4 class="title">Open Positions</h4>
             </div>
-            {%for job in jobs_posted%}
-            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-              <!--== Start Recent Job Item ==-->
-              <div class="recent-job-item recent-job-style3-item">
-                <div class="company-info">
-                  <div class="logo">
-                    <a href="">
-                      <img src="{{job.recruiter.profile_pic.url}}" width="75" height="75" alt="">
-                    </a>
-                  </div>
-                  <div class="content mb--0">
-                    {%if job.recruiter.full_name%}
-                    <h4 class="name"><a href="">{{job.recruiter.full_name}}</a></h4>
-                    {%else%}
-                    <h4 class="name"><a href="">{{job.recruiter.owner.username}}</a></h4>
-                    {%endif%}
-                    <p class="address">{{job.location}}</p>
-                  </div>
+          </div>
+          {%for job in jobs_posted%}
+          <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+            <!--== Start Recent Job Item ==-->
+            <div class="recent-job-item recent-job-style3-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href="">
+                    <img src="{{job.recruiter.profile_pic.url}}" width="75" height="75" alt="">
+                  </a>
                 </div>
-                <div class="main-content">
-                  <h3 class="title">
-                    <a href="{%url 'job' job.title %}">{{job.title}}</a>
-                  </h3>
-                  <h5 class="work-type">Posted {{job.date_posted| timesince}} ago</h5>
+                <div class="content mb--0">
+                  {%if job.recruiter.full_name%}
+                  <h4 class="name"><a href="">{{job.recruiter.full_name}}</a></h4>
+                  {%else%}
+                  <h4 class="name"><a href="">{{job.recruiter.owner.username}}</a></h4>
+                  {%endif%}
+                  <p class="address">{{job.location}}</p>
                 </div>
-                <div class="recent-job-info">
-                  <div class="salary">
-                    <h4>Ksh{{job.pay}}</h4>
-                    <p>/day</p>
-                  </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title">
+                  <a href="{%url 'job' job.title %}">{{job.title}}</a>
+                </h3>
+                <h5 class="work-type">Posted {{job.date_posted| timesince}} ago</h5>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>Ksh{{job.pay}}</h4>
+                  <p>/day</p>
+                </div>
                 {%if request.user.profile.role == 'Client' and job.recruiter.owner == request.user %}
                 <a class="btn-apply-now btn-theme" href="{%url 'applicants'  job.id%}">
                   Vet Applicants<i class="icofont-long-arrow-right"></i>
@@ -116,11 +148,11 @@
                 {%else%}
                 <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
                 {%endif%}
-                </div>
               </div>
-              <!--== End Recent Job Item ==-->
             </div>
-            {%endfor%}
+            <!--== End Recent Job Item ==-->
+          </div>
+          {%endfor%}
         </div>
         {%else%}
         <div class="row">
