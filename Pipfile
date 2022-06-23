@@ -9,6 +9,7 @@ python-dotenv = "*"
 psycopg2 = "*"
 cloudinary = "*"
 autopep8 = "*"
+pillow = "*"
 
 [dev-packages]
 

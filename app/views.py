@@ -1,10 +1,12 @@
-from django.http import HttpResponse
+import os
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import PostJobForm, RegisterForm
+from .forms import PostJobForm, RegisterForm, UpdateProfileForm
 from .models import AppliedJobs, Candidate, Profile, Job
+from django.conf import settings
 
 # Create your views here.
 
@@ -97,15 +99,16 @@ def post_job(request):
     ctx= {'form': form}
     return render(request, 'app/post-jobs.html', ctx)
 
+
 def delete_job(request, name):
     job = get_object_or_404(Job, title = name)
     page = 'delete job'
     if request.method == 'POST':
         job.delete()
-        messages.success(request, 'You have successfully joined')
         return redirect('profile')
     ctx = {'page': page, 'obj': job}
     return render(request, 'app/delete.html', ctx)
+
 
 def job_details(request, name):
     job = Job.objects.get(title=name)
@@ -114,7 +117,7 @@ def job_details(request, name):
 
 
 def employer_details(request, name):
-    employer = Job.objects.get(recruiter__owner__username=name)
+    employer = Job.objects.filter(recruiter__owner__username=name).first()
     ctx = {'employer': employer}
     return render(request, 'app/employer-details.html', ctx)
 
@@ -144,6 +147,19 @@ def profile(request):
     return render(request, 'app/profile.html', ctx)
 
 
+def edit_profile(request):
+    profile = Profile.objects.get(owner=request.user)
+    form = UpdateProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+
+    ctx = {'profile': profile, 'form': form}
+    return render(request, 'app/update-profile.html', ctx)
+
+    
 def applicants(request, pk):
     job = Job.objects.get(id=pk)
     ctx = {'job': job}
@@ -162,3 +178,13 @@ def apply_job(request, pk):
 
     messages.success(request, f'You have successfully applied for the {job.title} Job. The client has been notified. All the best.')
     return redirect('jobs' )
+
+
+def download(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404

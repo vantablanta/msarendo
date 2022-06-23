@@ -51,7 +51,7 @@
             </div>
             <div class="job-details-price">
               <div class="title"><span>Active since {{profile.created | timesince}} ago</span></div>
-              <button type="button" class="btn-theme">Edit Profile</button>
+              <a href="{%url 'edit-profile' %}" class="btn-theme">Edit Profile</a>
             </div>
           </div>
         </div>
@@ -130,7 +130,6 @@
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-
             <!--== Start Recent Job Item ==-->
             {%for job in applied_jobs%}
             <div class="recent-job-item recent-job-style3-item">
@@ -178,7 +177,6 @@
             {%endfor%}
             <!--== End Recent Job Item ==-->
           </div>
-
         </div>
         {%endif%}
       </div>

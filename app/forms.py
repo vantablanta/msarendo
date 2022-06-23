@@ -37,3 +37,13 @@ class PostJobForm(ModelForm):
             'experience': forms.Select(attrs={'class': 'form-control mb-4 '})
         }
 
+
+class UpdateProfileForm(ModelForm):
+    full_name = forms.CharField(max_length=200, label='Full name',widget=forms.TextInput(attrs={'class': 'form-control mb-4'}))
+    location = forms.CharField(max_length=200, label='location',widget=forms.TextInput(attrs={'class': 'form-control mb-4'}))
+    about = forms.CharField(max_length=200, label='about',widget=forms.Textarea(attrs={'class': 'form-control mb-4'}))
+    profile_pic = forms.FileField(max_length=200,label='upload profile photo',widget=forms.FileInput(attrs={'class': 'form-control mb-4'}))
+    
+    class Meta():
+        model = Profile
+        fields = ['full_name', 'location', 'about', 'profile_pic']
