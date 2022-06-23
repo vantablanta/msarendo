@@ -42,7 +42,9 @@
                 <h4 class="title">{{profile.owner.username | capfirst}}</h4>
                 {%endif%}
                 <ul class="info-list">
+                  {%if profile.location%}
                   <li><i class="icofont-location-pin"></i> {{profile.location}}</li>
+                  {%endif%}
                   {%if profile.owner.email%}
                   <li><i class="icofont-email"></i> {{profile.owner.email}}</li>
                   {%endif%}
@@ -75,14 +77,6 @@
                 </div>
               </div>
 
-
-
-
-
-
-
-
-
               {%endif%}
             </div>
           </div>
@@ -93,7 +87,16 @@
           <div class="job-details-item">
             <div class="content">
               <h4 class="title">Bio</h4>
+              {%if profile.bio%}
               <p class="desc">{{profile.about |capfirst}}</p>
+              {%else%}
+                {%if request.user.profile.role == 'Candidate' %}
+                <p class="desc">Update your profile to add a an about section, location and a resume. 
+                  They will put you at better chance of getting jobs</p>
+                {%else%}
+                <p class="desc">Update your profile to add an about section </p>
+                {%endif%}
+              {%endif%}
             </div>
           </div>
         </div>
@@ -206,6 +209,8 @@
                 {%endif%}
               </div>
             </div>
+            {%empty%}
+            <p>Start applying to see your applied jobs here.</p>
             {%endfor%}
             <!--== End Recent Job Item ==-->
           </div>

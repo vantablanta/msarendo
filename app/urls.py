@@ -31,7 +31,8 @@ path('apply/<str:pk>', views.apply_job, name='apply'),
 
 path('contract/<str:name>', views.contract, name='contract'),
 
-path('404/', views.page_404, name ='page-404')
+path('404/', views.page_404, name ='page-404'),
+path('search/', views.search, name='search'),
 
 ]
 

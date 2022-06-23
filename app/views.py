@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import PostJobForm, RegisterForm, UpdateProfileForm, UploadResumeForm
 from .models import AppliedJobs, Candidate, Profile, Job, Hired, Contact
+from django.db.models import Q
+from .emails import send_welcome_email
+
 
 # Create your views here.
 
@@ -48,7 +51,14 @@ def register_user(request):
                 candidate = Candidate.objects.create(owner=profile)
                 candidate.save()
 
-            return redirect('home')
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            recipient = User(username=username, email=email)
+            send_welcome_email(username, email)
+            
+            login(request, user)
+            return redirect('profile')
+            
     ctx = {'form': form}
     return render(request, 'app/register.html', ctx)
 
@@ -228,3 +238,11 @@ def page_404(request):
     return render(request, 'app/page-404.html')
 
 
+def search(request):
+    query  = request.GET.get('query')
+    if query:
+        jobs = Job.objects.filter(
+            Q (title__icontains=query)
+        )
+    ctx = {'jobs': jobs}
+    return render(request, 'app/search.html', ctx)
