@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 psycopg2 = "*"
 cloudinary = "*"
+autopep8 = "*"
 
 [dev-packages]
 

@@ -17,6 +17,9 @@ path('job/<str:name>', views.job_details, name='job'),
 path('employer/<str:name>', views.employer_details, name='employer'),
 path('applicants/<str:pk>', views.applicants, name='applicants'),
 
+path('post-jobs/', views.post_job, name='post'),
+path('close/<str:name>', views.delete_job, name='close'),
+
 
 path('candidates/', views.candidates, name='candidates'),
 path('candidate/<str:name>', views.candidate_details, name='candidate'),

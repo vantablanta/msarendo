@@ -101,7 +101,16 @@
                         <h4>Ksh{{employer.pay}}</h4>
                         <p>/day</p>
                       </div>
+                      {%if employer.recruiter.owner == request.user %}
+                      <a class="btn-apply-now" href="{%url 'applicants'  employer.id%}">
+                        Vet Applicants<i class="icofont-long-arrow-right"></i>
+                      </a>
+                      {%endif%}
+                      {%if employer.recruiter.role == 'Client' %}
+                      <p></p>
+                      {%else%}
                       <a class="btn-theme btn-sm" href="{%url 'job' employer.title %}">Apply Now</a>
+                      {%endif%}
                     </div>
                   </div>
                   <!--== End Recent Job Item ==-->

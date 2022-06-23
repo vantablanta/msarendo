@@ -41,9 +41,9 @@
             </div>
             <div class="content">
               {%if candidate.owner.full_name%}
-              <h4 class="title"><a href="">{{candidate.owner.full_name}}</a></h4>
+              <h4 class="title"><a href="{%url 'candidate' candidate.owner.owner.username%}">{{candidate.owner.full_name}}</a></h4>
               {%else%}
-              <h4 class="title"><a href="">{{candidate.owner.owner.username}}</a></h4>
+              <h4 class="title"><a href="{%url 'candidate' candidate.owner.owner.username%}">{{candidate.owner.owner.username}}</a></h4>
               {%endif%}
               <h5 class="sub-title">{{candidate.headline}}</h5>
               <div class="rating-box">

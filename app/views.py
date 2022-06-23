@@ -1,12 +1,14 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import RegisterForm
-from .models import Candidate, Profile, Job
+from .forms import PostJobForm, RegisterForm
+from .models import AppliedJobs, Candidate, Profile, Job
 
 # Create your views here.
+
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username').lower()
@@ -27,15 +29,15 @@ def login_user(request):
 
     return render(request, 'app/login.html')
 
+
 def register_user(request):
     form = RegisterForm()
-
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
-            user.save()     
+            user.save()
 
             role = request.POST.get('role')
             profile = Profile.objects.create(owner=user, role=role)
@@ -46,74 +48,117 @@ def register_user(request):
                 candidate.save()
 
             return redirect('home')
-
     ctx = {'form': form}
     return render(request, 'app/register.html', ctx)
+
 
 def logout_user(request):
     logout(request)
     return redirect('home')
 
+
 def home(request):
     jobs = Job.objects.all()
     ctx = {'jobs': jobs}
-    return render(request, 'app/index.html', ctx )
+    return render(request, 'app/index.html', ctx)
+
 
 def about(request):
-    return render(request, 'app/about.html' )
+    return render(request, 'app/about.html')
+
 
 def contact(request):
-    return render(request, 'app/contact.html' )
+    return render(request, 'app/contact.html')
+
 
 def user_role(request):
     user = request.user
-    profile = Profile.objects.get(owner = user)
+    profile = Profile.objects.get(owner=user)
     ctx = {'profile': profile}
     return render(request, 'nav.html', ctx)
 
+
 def jobs(request):
-    jobs = Job.objects.all()
+    jobs = Job.objects.all() 
+
     ctx = {'jobs': jobs}
     return render(request, 'app/jobs.html', ctx)
 
+def post_job(request):
+    profile = Profile.objects.get(owner = request.user)
+    form = PostJobForm()
+    if request.method == 'POST':
+        form = PostJobForm(request.POST)
+        if form.is_valid():
+            new_job = form.save(commit = False)
+            new_job.recruiter = profile
+            new_job.save()
+            return redirect('home')
+    ctx= {'form': form}
+    return render(request, 'app/post-jobs.html', ctx)
+
+def delete_job(request, name):
+    job = get_object_or_404(Job, title = name)
+    page = 'delete job'
+    if request.method == 'POST':
+        job.delete()
+        messages.success(request, 'You have successfully joined')
+        return redirect('profile')
+    ctx = {'page': page, 'obj': job}
+    return render(request, 'app/delete.html', ctx)
+
 def job_details(request, name):
-    job = Job.objects.get(title = name)
+    job = Job.objects.get(title=name)
     ctx = {'job': job}
     return render(request, 'app/job-details.html', ctx)
 
+
 def employer_details(request, name):
-    employer = Job.objects.get(recruiter__owner__username = name)
-    ctx = {'employer':employer}
+    employer = Job.objects.get(recruiter__owner__username=name)
+    ctx = {'employer': employer}
     return render(request, 'app/employer-details.html', ctx)
+
 
 def candidates(request):
     candidates = Candidate.objects.all()
     ctx = {'candidates': candidates}
     return render(request, 'app/candidates.html', ctx)
 
+
 def candidate_details(request, name):
-    candidate = Candidate.objects.get(owner__owner__username = name)
+    candidate = Candidate.objects.get(owner__owner__username=name)
     ctx = {'candidate': candidate}
     return render(request, 'app/candidate-details.html', ctx)
 
-def profile(request):
-    profile = Profile.objects.get(owner = request.user)
-    jobs_posted = Job.objects.filter(recruiter = profile)
 
-    candidate = Candidate.objects.filter(owner = profile)
-    ctx = {'profile': profile, 'jobs_posted': jobs_posted, 'candidate': candidate}
+def profile(request):
+    profile = Profile.objects.get(owner=request.user)
+    jobs_posted = Job.objects.filter(recruiter=profile)
+
+    candidate = Candidate.objects.filter(owner=profile)
+
+    applied_jobs = AppliedJobs.objects.filter(candidate__owner=profile)
+
+    ctx = {'profile': profile, 'jobs_posted': jobs_posted,
+        'candidate': candidate, 'applied_jobs': applied_jobs}
     return render(request, 'app/profile.html', ctx)
 
+
 def applicants(request, pk):
-    job = Job.objects.get(id = pk)
+    job = Job.objects.get(id=pk)
     ctx = {'job': job}
     return render(request, 'app/applicants.html', ctx)
 
+
 def apply_job(request, pk):
-   job = Job.objects.get(id = pk)
-   user = request.user
-   profile = Profile.objects.get(owner = user)
-   applicant = Candidate.objects.get(owner = profile)
-   job.applicants.add(applicant)
-   messages.success(request, f'You have successfully applied for the {job.title} Job. The client has been notified. All the best.')
-   return redirect('jobs')
+    job = Job.objects.get(id=pk)
+    user = request.user
+    profile = Profile.objects.get(owner=user)
+    applicant = Candidate.objects.get(owner=profile)
+    job.applicants.add(applicant)
+
+    new_candidate = AppliedJobs.objects.create(job = job, candidate = applicant)
+    new_candidate.save()
+
+    messages.success(request, f'You have successfully applied for the {job.title} Job. The client has been notified. All the best.')
+    return redirect('jobs' )

@@ -106,9 +106,12 @@
                     <h4>Ksh{{job.pay}}</h4>
                     <p>/day</p>
                   </div>
-                {%if request.user.profile.role == 'Client' %}
+                {%if request.user.profile.role == 'Client' and job.recruiter.owner == request.user %}
                 <a class="btn-apply-now btn-theme" href="{%url 'applicants'  job.id%}">
                   Vet Applicants<i class="icofont-long-arrow-right"></i>
+                </a>
+                <a href="{%url 'close' job.title%}" class="btn-apply-now btn-theme float-end">
+                  Close Job<i class="icofont-trash"></i>
                 </a>
                 {%else%}
                 <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
@@ -120,7 +123,63 @@
             {%endfor%}
         </div>
         {%else%}
+        <div class="row">
+          <div class="col-12">
+            <div class="content mb--0 pb-2">
+              <h4 class="title">Applied Jobs</h4>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-12 col-xl-6">
 
+            <!--== Start Recent Job Item ==-->
+            {%for job in applied_jobs%}
+            <div class="recent-job-item recent-job-style3-item">
+              <div class="company-info">
+                <div class="logo">
+                  <a href="">
+                    <img src="{{job.job.recruiter.profile_pic.url}}" width="75" height="75" alt="">
+                  </a>
+                </div>
+                <div class="content mb--0">
+                  {%if job.job.recruiter.full_name%}
+                  <h4 class="name"><a href="">{{job.job.recruiter.full_name | capfirst}}</a></h4>
+                  {%else%}
+                  <h4 class="name"><a href="">{{job.job.recruiter.owner.username | capfirst}}</a></h4>
+                  {%endif%}
+                  <p class="address">{{job.job.location}}</p>
+                </div>
+              </div>
+              <div class="main-content">
+                <h3 class="title">
+                  <a href="">{{job.job.title}}</a>
+                </h3>
+                <h5 class="work-type">Posted {{job.job.date_posted| timesince}} ago</h5>
+              </div>
+              <div class="recent-job-info">
+                <div class="salary">
+                  <h4>Ksh{{job.job.pay}}</h4>
+                  <p>/day</p>
+                </div>
+                {%if job.job.recruiter.owner == request.user %}
+                <a class="btn-apply-now" href="">
+                  Vet Applicants<i class="icofont-long-arrow-right"></i>
+                </a>
+                {%endif%}
+                {%if job.job.recruiter.role == 'Client' %}
+                <p></p>
+                {%endif%}
+                {%if job.candidate.owner.owner == request.user %}
+                <p>Applied</p>
+                {%else%}
+                <a class="btn-theme btn-sm" href="">Apply Now</a>
+                {%endif%}
+              </div>
+            </div>
+            {%endfor%}
+            <!--== End Recent Job Item ==-->
+          </div>
+
+        </div>
         {%endif%}
       </div>
     </div>

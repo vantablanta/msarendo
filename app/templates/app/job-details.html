@@ -35,7 +35,7 @@
               </div>
               <div class="content">
                 <h4 class="title">{{job.title}}</h4>
-                <h5 class="sub-title">By &nbsp;{{job.recruiter.full_name | capfirst}}</h5>
+                <h5 class="sub-title"> <a href="{%url 'employer' job.recruiter.owner.username %}">By &nbsp;{{job.recruiter.full_name | capfirst}}</a></h5>
                 <ul class="info-list">
                   <li><i class="icofont-location-pin"></i> {{job.location}}</li>
                 </ul>

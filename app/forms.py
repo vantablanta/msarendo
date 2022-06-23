@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import  Profile
+from .models import  Profile, Job
 
 
 class RegisterForm(UserCreationForm):
@@ -14,3 +14,26 @@ class RegisterForm(UserCreationForm):
     class Meta():
        model=User
        fields = ['email', 'username', 'password1', 'password2']
+
+
+class PostJobForm(ModelForm):
+    title =forms.CharField(max_length=200, label='',widget=forms.TextInput(attrs={'class': 'form-control mb-4','placeholder': 'job title'}))
+    location =forms.CharField(max_length=200, label='',widget=forms.TextInput(attrs={'class': 'form-control mb-4','placeholder': 'location'}))
+    pay =forms.CharField(max_length=200, label='',widget=forms.TextInput(attrs={'class': 'form-control mb-4','placeholder': 'pay'}))
+    candidate_gender =forms.CharField(max_length=200, label='',widget=forms.TextInput(attrs={'class': 'form-control mb-4','placeholder': 'male or female'}))
+    description =forms.CharField(label='',widget=forms.Textarea(attrs={'class': 'form-control mb-4','placeholder': 'description'}))
+    duration =forms.CharField(max_length=200, label='',widget=forms.TextInput(attrs={'class': 'form-control mb-4','placeholder': 'duration i.e 1 day'}))
+    class Meta():
+        model=Job
+        fields = ['title', 'type', 'experience', 'location', 'pay',
+        'candidate_gender', 'description', 'duration', ]
+        labels = {
+            "type": "select job category",
+            "experience": 'select candidate experience'
+
+        }
+        widgets = {
+            'type': forms.Select(attrs={'class': 'form-control mb-4 '}),
+            'experience': forms.Select(attrs={'class': 'form-control mb-4 '})
+        }
+
