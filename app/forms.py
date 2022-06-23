@@ -48,6 +48,7 @@ class UpdateProfileForm(ModelForm):
         model = Profile
         fields = ['full_name', 'location', 'about', 'profile_pic']
 
+
 class UploadResumeForm(ModelForm):
     resume = forms.FileField(max_length=200,label='upload resume',widget=forms.FileInput(attrs={'class': 'form-control mb-4'}))
     

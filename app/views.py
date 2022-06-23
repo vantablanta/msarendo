@@ -99,7 +99,7 @@ def jobs(request):
     return render(request, 'app/jobs.html', ctx)
 
 
-@login_required()
+@login_required(login_url='login')
 def post_job(request):
     profile = Profile.objects.get(owner = request.user)
     form = PostJobForm()
@@ -212,13 +212,17 @@ def apply_job(request, pk):
 @login_required(login_url='login')
 def contract(request, name):
     candidate = Candidate.objects.get(owner__owner__username = name)
-    job = Job.objects.get(applicants = candidate)
+    job = Job.objects.filter(applicants = candidate).first()
     if request.method == 'POST':
         new_match = Hired.objects.create(job = job, candidate=candidate)
         new_match.save()
+
+        job.delete()
+
         return redirect('candidates')
     ctx = {'candidate' : candidate, 'job' : job}
     return render(request, 'app/contract.html', ctx)
+
 
 def page_404(request):
     return render(request, 'app/page-404.html')

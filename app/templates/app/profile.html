@@ -39,7 +39,7 @@
                 {%if profile.full_name%}
                 <h4 class="title">{{profile.full_name |capfirst}}</h4>
                 {%else%}
-                <h4 class="title">{{profile.owner.username}}</h4>
+                <h4 class="title">{{profile.owner.username | capfirst}}</h4>
                 {%endif%}
                 <ul class="info-list">
                   <li><i class="icofont-location-pin"></i> {{profile.location}}</li>
@@ -120,9 +120,9 @@
                 </div>
                 <div class="content mb--0">
                   {%if job.recruiter.full_name%}
-                  <h4 class="name"><a href="">{{job.recruiter.full_name}}</a></h4>
+                  <h4 class="name"><a href="">{{job.recruiter.full_name | capfirst}}</a></h4>
                   {%else%}
-                  <h4 class="name"><a href="">{{job.recruiter.owner.username}}</a></h4>
+                  <h4 class="name"><a href="">{{job.recruiter.owner.username | capfirst}}</a></h4>
                   {%endif%}
                   <p class="address">{{job.location}}</p>
                 </div>
