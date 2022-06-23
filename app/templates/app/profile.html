@@ -107,7 +107,9 @@
                     <p>/day</p>
                   </div>
                 {%if request.user.profile.role == 'Client' %}
-                <p></p>
+                <a class="btn-apply-now btn-theme" href="{%url 'applicants'  job.id%}">
+                  Vet Applicants<i class="icofont-long-arrow-right"></i>
+                </a>
                 {%else%}
                 <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
                 {%endif%}

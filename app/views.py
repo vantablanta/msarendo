@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -98,10 +99,15 @@ def candidate_details(request, name):
 def profile(request):
     profile = Profile.objects.get(owner = request.user)
     jobs_posted = Job.objects.filter(recruiter = profile)
+
     candidate = Candidate.objects.filter(owner = profile)
     ctx = {'profile': profile, 'jobs_posted': jobs_posted, 'candidate': candidate}
     return render(request, 'app/profile.html', ctx)
 
+def applicants(request, pk):
+    job = Job.objects.get(id = pk)
+    ctx = {'job': job}
+    return render(request, 'app/applicants.html', ctx)
 
 def apply_job(request, pk):
    job = Job.objects.get(id = pk)
@@ -109,5 +115,5 @@ def apply_job(request, pk):
    profile = Profile.objects.get(owner = user)
    applicant = Candidate.objects.get(owner = profile)
    job.applicants.add(applicant)
-   messages.success(request, 'Applied. Client notified')
+   messages.success(request, f'You have successfully applied for the {job.title} Job. The client has been notified. All the best.')
    return redirect('jobs')

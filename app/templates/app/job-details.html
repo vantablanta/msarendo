@@ -46,7 +46,7 @@
               {%if request.user.profile.role == 'Client' and request.user == job.recruiter.owner %}
               <button type="button" class="btn-theme">Edit Job</button>
               {%else%}
-              <button type="button" class="btn-theme">Apply Now</button>
+                <a class="btn-apply-now btn-theme" href="{%url 'apply' job.id %}">Apply Now </a>
               {%endif%}
             </div>
           </div>
@@ -70,7 +70,7 @@
                 {%if request.user.profile.role == 'Client' %}
                 <p></p>
                 {%else%}
-                <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
+                <a class="btn-apply-now" href="{%url 'apply' job.id%}">Apply Now <i class="icofont-long-arrow-right"></i></a>
                 {%endif%}
             </div>
           </div>
