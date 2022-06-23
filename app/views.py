@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import PostJobForm, RegisterForm, UpdateProfileForm
-from .models import AppliedJobs, Candidate, Profile, Job, Hired
+from .models import AppliedJobs, Candidate, Profile, Job, Hired, Contact
 
 # Create your views here.
 
@@ -68,6 +68,19 @@ def about(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        owner = Profile.objects.get(owner = request.user)
+
+        new_message = Contact.objects.create(name= name, email=email, 
+        subject=subject, message=message, owner = owner)
+        new_message.save()
+
+        return redirect('home')
+
     return render(request, 'app/contact.html')
 
 
