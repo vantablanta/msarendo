@@ -94,10 +94,9 @@
                             <div class="collapse-body">
                             <div class="widget-menu-wrap">
                                 <ul class="nav-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="about-us.html">Why Extobot</a></li>
-                                <li><a href="contact.html">Contact With Us</a></li>
-                                <li><a href="contact.html">Our Partners</a></li>
+                                <li><a href="{%url 'about' %}">About Us</a></li>
+                                <li><a href="{%url 'contact'%}">ContactUs</a></li>
+   
                                 </ul>
                             </div>
                             </div>
@@ -112,46 +111,8 @@
                             <div class="collapse-body">
                             <div class="widget-menu-wrap">
                                 <ul class="nav-menu">
-                                <li><a href="account-login.html">Quick Links</a></li>
-                                <li><a href="job.html">Job Packages</a></li>
-                                <li><a href="job.html">Post New Job</a></li>
-                                <li><a href="job.html">Jobs Listing</a></li>
-                                </ul>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                        <div class="widget-item nav-menu-item3">
-                        <h4 class="widget-title">Legal</h4>
-                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-3">Legal</h4>
-                        <div id="widgetId-3" class="collapse widget-collapse-body">
-                            <div class="collapse-body">
-                            <div class="widget-menu-wrap">
-                                <ul class="nav-menu">
-                                <li><a href="account-login.html">Affiliate</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="account-login.html">Help & Support</a></li>
-                                <li><a href="job.html">Careers</a></li>
-                                </ul>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                        <div class="widget-item nav-menu-item4">
-                        <h4 class="widget-title">Products</h4>
-                        <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-4">Products</h4>
-                        <div id="widgetId-4" class="collapse widget-collapse-body">
-                            <div class="collapse-body">
-                            <div class="widget-menu-wrap">
-                                <ul class="nav-menu">
-                                <li><a href="account-login.html">Star a Trial</a></li>
-                                <li><a href="about-us.html">How It Works</a></li>
-                                <li><a href="account-login.html">Features</a></li>
-                                <li><a href="about-us.html">Price & Planing</a></li>
+                                <li><a href="{%url 'login' %}">Quick Links</a></li>
+                                <li><a href="{%url 'jobs' %}">Jobs Listing</a></li>
                                 </ul>
                             </div>
                             </div>
@@ -196,37 +157,12 @@
             <!-- Mobile Menu Start -->
             <div class="mobile-menu-items">
                 <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Find Jobs</a>
-                    <ul class="sub-menu">
-                    <li><a href="job.html">Jobs</a></li>
-                    <li><a href="job-details.html">Job Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="employers-details.html">Employers Details</a></li>
-                <li><a href="#">Candidates</a>
-                    <ul class="sub-menu">
-                    <li><a href="candidate.html">Candidates</a></li>
-                    <li><a href="candidate-details.html">Candidate Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Blog</a>
-                    <ul class="sub-menu">
-                    <li><a href="blog-grid.html">Blog Grid</a></li>
-                    <li><a href="blog.html">Blog Left Sidebar</a></li>
-                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                    <li><a href="about-us.html">About us</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                    <li><a href="page-not-found.html">Page Not Found</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{%url 'home' %}"><span>Home</span></a></li>
+                    <li><a href="{%url 'jobs' %}"><span>Jobs</span></a></li>
+                    <li><a href="{%url 'about' %}"><span>About us</span></a></li>
+                    <li><a href="{%url 'contact' %}"><span>Contact</span></a></li>
+                    <li><a href="{%url 'login' %}"><span>Login</span></a></li>
+    
                 </ul>
             </div>
             <!-- Mobile Menu End -->

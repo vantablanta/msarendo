@@ -29,6 +29,8 @@ path('profile/', views.profile, name='profile'),
 path('edit-profile/', views.edit_profile, name='edit-profile'),
 path('apply/<str:pk>', views.apply_job, name='apply'),
 
+path('contract/<str:name>', views.contract, name='contract'),
+
 ]
 
 if settings.DEBUG:

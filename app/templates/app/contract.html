@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<main class="main-content">
+  <!--== Start Page Header Area Wrapper ==-->
+  <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+    <div class="container pt--0 pb--0">
+      <div class="row">
+        <div class="col-12">
+          <div class="page-header-content">
+            <h2 class="title">Contract {{candidate.owner.full_name}}</h2>
+            <nav class="breadcrumb-area">
+              <ul class="breadcrumb justify-content-center">
+                <li><a href="index.html">Home</a></li>
+                <li class="breadcrumb-sep">//</li>
+                <li>Contact</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--== End Page Header Area Wrapper ==-->
+
+  <!--== Start Contact Area Wrapper ==-->
+  <section class="contact-area contact-page-area">
+    <div class="container">
+      <div class="row contact-page-wrapper">
+
+        <div class="col-lg-12">
+          <div class="map-area contact-form">
+            <h4 class="contact-form-title">E Contract</h4>
+            <p class="desc">I {{job.recruiter.full_name | capfirst}} declare that
+              I am hiring {{candidate.owner.full_name}} at the rate of Ksh {{job.pay}}
+              for {{job.duration}}.
+              By accepting to go into this legally binding contract I am obliged to treat the candiadte with respect and
+              would be
+              liable incase any miscoduct or discrimination is reported by {{candidate.owner.full_name}}.
+              I also agree to report any out of the normal treatment or behaviour the candidate will display.
+              I also agree to pay the candidate the full amount I posted after completion of work and would be liable
+              for any legal measure for failure to do so.
+            </p>
+            <p>By agreeing I accept to be contacted about any further clarification on the job.</p>
+            <p class="">
+            <form action="" method="POST">
+              {%csrf_token%}
+              <button type='submit' class='btn-theme me-2'>Agree</button>
+            </form>
+            <a class='btn-theme me-2 text-light float-end'
+              style="background-color: rgb(255, 96, 0); border-color: rgb(255, 96, 0); "
+              href="{{request.META.HTTP_REFERER}}">Cancel
+            </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--== End Contact Area Wrapper ==-->
+</main>
+{%endblock%}

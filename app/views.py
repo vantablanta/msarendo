@@ -1,12 +1,10 @@
-import os
-from django.http import Http404, HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import PostJobForm, RegisterForm, UpdateProfileForm
-from .models import AppliedJobs, Candidate, Profile, Job
-from django.conf import settings
+from .models import AppliedJobs, Candidate, Profile, Job, Hired
 
 # Create your views here.
 
@@ -86,6 +84,8 @@ def jobs(request):
     ctx = {'jobs': jobs}
     return render(request, 'app/jobs.html', ctx)
 
+
+@login_required()
 def post_job(request):
     profile = Profile.objects.get(owner = request.user)
     form = PostJobForm()
@@ -100,6 +100,7 @@ def post_job(request):
     return render(request, 'app/post-jobs.html', ctx)
 
 
+@login_required(login_url='login')
 def delete_job(request, name):
     job = get_object_or_404(Job, title = name)
     page = 'delete job'
@@ -110,30 +111,33 @@ def delete_job(request, name):
     return render(request, 'app/delete.html', ctx)
 
 
+@login_required(login_url='login')
 def job_details(request, name):
     job = Job.objects.get(title=name)
     ctx = {'job': job}
     return render(request, 'app/job-details.html', ctx)
 
 
+@login_required(login_url='login')
 def employer_details(request, name):
     employer = Job.objects.filter(recruiter__owner__username=name).first()
     ctx = {'employer': employer}
     return render(request, 'app/employer-details.html', ctx)
 
 
+@login_required(login_url='login')
 def candidates(request):
     candidates = Candidate.objects.all()
     ctx = {'candidates': candidates}
     return render(request, 'app/candidates.html', ctx)
 
-
+@login_required(login_url='login')
 def candidate_details(request, name):
     candidate = Candidate.objects.get(owner__owner__username=name)
     ctx = {'candidate': candidate}
     return render(request, 'app/candidate-details.html', ctx)
 
-
+@login_required(login_url='login')
 def profile(request):
     profile = Profile.objects.get(owner=request.user)
     jobs_posted = Job.objects.filter(recruiter=profile)
@@ -146,7 +150,7 @@ def profile(request):
         'candidate': candidate, 'applied_jobs': applied_jobs}
     return render(request, 'app/profile.html', ctx)
 
-
+@login_required(login_url='login')
 def edit_profile(request):
     profile = Profile.objects.get(owner=request.user)
     form = UpdateProfileForm(instance=profile)
@@ -159,13 +163,15 @@ def edit_profile(request):
     ctx = {'profile': profile, 'form': form}
     return render(request, 'app/update-profile.html', ctx)
 
-    
+
+@login_required(login_url='login')
 def applicants(request, pk):
     job = Job.objects.get(id=pk)
     ctx = {'job': job}
     return render(request, 'app/applicants.html', ctx)
 
 
+@login_required(login_url='login')
 def apply_job(request, pk):
     job = Job.objects.get(id=pk)
     user = request.user
@@ -180,11 +186,14 @@ def apply_job(request, pk):
     return redirect('jobs' )
 
 
-def download(request, path):
-    file_path = os.path.join(settings.MEDIA_ROOT, path)
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-            return response
-    raise Http404
+@login_required(login_url='login')
+def contract(request, name):
+    candidate = Candidate.objects.get(owner__owner__username = name)
+    job = Job.objects.get(applicants = candidate)
+    if request.method == 'POST':
+        new_match = Hired.objects.create(job = job, candidate=candidate)
+        new_match.save()
+    ctx = {'candidate' : candidate, 'job' : job}
+    return render(request, 'app/contract.html', ctx)
+
+

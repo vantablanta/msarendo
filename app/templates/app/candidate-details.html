@@ -51,8 +51,8 @@
                 </div>
               </div>
               <div class="team-details-btn">
-                <button type="button" class="btn-theme btn-light">Short List</button>
-                <a class="btn-theme" href="{{ candidate.resume.url}}" download>Download</a>
+                <a href="{%url 'contract' candidate.owner.owner.username %}" class="btn-theme btn-light">Short List</a>
+                <a class="btn-theme" href="{{ candidate.resume.url}}" download>Resume</a>
               </div>
             </div>
           </div>
@@ -64,44 +64,6 @@
                 <h4 class="title">About Candidate</h4>
                 <p class="desc">{{candidate.owner.about}}</p>
               </div>                                             
-            </div>
-          </div>
-          <div class="col-lg-5 col-xl-4">
-            <div class="team-sidebar">                               
-              <div class="widget-item widget-contact">
-                <div class="widget-title">
-                  <h3 class="title">Contact Now</h3>
-                </div>
-                <div class="widget-contact-form">
-                  <form id="contact-form" action="https://whizthemes.com/mail-php/raju/arden/mail.php" method="POST">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_name" placeholder="Name:">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <input class="form-control" type="email" name="con_email" placeholder="Email:">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <textarea class="form-control" name="con_message" placeholder="Message"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group mb--0">
-                          <button class="btn-theme d-block w-100" type="submit">Send Message</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-
-                  <!--== Message Notification ==-->
-                  <div class="form-message"></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

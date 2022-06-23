@@ -44,7 +44,7 @@
             <div class="job-details-price">
               <h4 class="title">Ksh{{job.pay}}</h4>
               {%if request.user.profile.role == 'Client' and request.user == job.recruiter.owner %}
-              <button type="button" class="btn-theme">Edit Job</button>
+              <a href="" class="btn-theme">Delete</a>
               {%else%}
                 <a class="btn-apply-now btn-theme" href="{%url 'apply' job.id %}">Apply Now </a>
               {%endif%}

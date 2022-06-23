@@ -59,18 +59,18 @@ class Candidate(models.Model):
     def __str__(self):
         return self.owner.owner.username
 
-class SavedJobs(models.Model):
-    job = models.ForeignKey(Job, related_name='saved', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='saved', on_delete=models.CASCADE)
-    date_posted = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.job.title
-
 class AppliedJobs(models.Model):
     job = models.ForeignKey(Job, related_name='applied', on_delete=models.CASCADE)
     candidate = models.ForeignKey(Candidate, related_name='applied_user', on_delete=models.CASCADE)
-    date_posted = models.DateTimeField(auto_now_add=True)
+    date_applied = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.job.title
+
+class Hired(models.Model):
+    job = models.ForeignKey(Job, related_name='saved', on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Candidate, related_name='saved', on_delete=models.CASCADE)
+    date_hired = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.candidate.owner.owner.username} hired for {self.job.title}'

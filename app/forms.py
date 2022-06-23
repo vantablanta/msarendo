@@ -47,3 +47,4 @@ class UpdateProfileForm(ModelForm):
     class Meta():
         model = Profile
         fields = ['full_name', 'location', 'about', 'profile_pic']
+

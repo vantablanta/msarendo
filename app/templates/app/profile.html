@@ -97,7 +97,7 @@
                 </div>
                 <div class="main-content">
                   <h3 class="title">
-                    <a href="">{{job.title}}</a>
+                    <a href="{%url 'job' job.title %}">{{job.title}}</a>
                   </h3>
                   <h5 class="work-type">Posted {{job.date_posted| timesince}} ago</h5>
                 </div>
