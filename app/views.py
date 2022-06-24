@@ -238,7 +238,10 @@ def contract(request, name):
         new_match.save()
         job.delete()
 
-        return redirect('candidates')
+        recipient = User(username=username, email=email )
+        interest(username, email)
+
+        return redirect('profile')
 
     recipient = User(username=username, email=email )
     interest(username, email)
