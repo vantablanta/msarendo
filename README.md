@@ -27,7 +27,7 @@ To get the project .......
 ```
 ##### Navigate into the folder
  ```bash 
-cd project-hood
+cd project-msarendo
 ```
 ##### Install and activate Virtual  
  ```bash 
