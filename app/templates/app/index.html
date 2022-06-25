@@ -75,13 +75,13 @@
             <div class="recent-job-item">
               <div class="company-info">
                 <div class="logo">
-                  {%if recruiter.profile_pic%}
+                  {%if job.recruiter.profile_pic%}
                   <a href=""><img src="{{job.recruiter.profile_pic.url}}" width="75" height="75" alt=""></a>
                   {%endif%}
                 </div>
                 <div class="content">
                   <h4 class="name"><a href="{%url 'employer' job.recruiter.owner.username %}">
-                    {%if recruiter.full_name%}
+                    {%if job.recruiter.full_name%}
                     {{job.recruiter.full_name|capfirst}}</a></h4>
                     {%else%}
                     {{job.recruiter.owner.username |capfirst}}</a></h4>
