@@ -25,6 +25,7 @@ ALLOWED_HOSTS = ['msarendo.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    "django.contrib.postgres", 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -83,7 +84,7 @@ else:
        'default': dj_database_url.config( default=str(os.getenv('DATABASE_URL')))
     }
 
-db_from_env = dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=0, ssl_require=False)
 DATABASES['default'].update(db_from_env)
 
 
@@ -149,4 +150,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+django_heroku.settings(locals() ,databases=False)
