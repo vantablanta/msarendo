@@ -2,8 +2,8 @@
 >Developed by [Michelle-Njeri](https://github.com/vantablanta)  
   
 ## Description  
->A freelance platform for the informal sector. A user can post a job, vet a potential candidate
-using just one click. Download any required docuemnts for vetting. It implements a complex notification system using SMTP.
+>A freelance platform for the informal sector. A user can post a job, and vet a potential candidate
+using just one click. Download any required documents for vetting. It implements a complex notification system using SMTP.
 
 
 ##  Live Link  
@@ -12,9 +12,9 @@ using just one click. Download any required docuemnts for vetting. It implements
 
 ## User Story  
 * Sign in to the application to start using.
-* Check out available jobs and apply by a single swift click.
+* Check out available jobs and apply with a single swift click.
 * Post a job.
-* Recive updates on status of your application using email notofications
+* Recive updates on the status of your application using email notifications
 * View recruiter info
 * View Candidate info
     
@@ -38,7 +38,7 @@ pipenv shell
  pipenv sync
 ```  
 ##### Setup Database  
-  SetUp your database User,Password, Host then make migrations 
+  SetUp your database User, Password, Host then make migrations 
  ```bash 
 python manage.py makemigrations app
  ``` 
@@ -58,16 +58,13 @@ Open the application on your browser `127.0.0.1:8000`.
   
 ## Technology used  
   
-* [Python3.8](https://www.python.org/)  
-* [Django 4.0](https://docs.djangoproject.com/en/2.2/)  
+* [Python310](https://www.python.org/)  
+* [Django 4.2](https://docs.djangoproject.com/en/2.2/)  
 * [Heroku](https://heroku.com)  
   
   
-## Known Bugs  
-* There are no known bugs currently but pull requests are allowed incase you spot a bug  
-  
 ## Contact Information   
-If you have any question or contributions, please email me at [vantablanta@gmail.com]  
+If you have any questions or contributions, please email me at [vantablanta@gmail.com]  
   
 ## License 
 
